@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-100: #e0f2e9;
+    --color-brand-400: #4ade80;
+    --color-brand-500: #22c55e;
+    --color-brand-600: #16a34a;
+    --color-brand-900: #14532d;
+    --color-brand-black: #050505;
+    --color-brand-dark: #121212;
+    --color-brand-gray: #1a1a1a;
+}
+
+/* GPU compositing — tüm geçişleri GPU layer'ına taşı */
+*, *::before, *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    @apply bg-brand-black text-brand-100 font-sans;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 12px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale3d(0.96, 0.96, 1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasyonlu elementler GPU layer'ında çalışsın */
+[style*="animation"] {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+/* Geçişli butonlar ve kartlar */
+button, select, input {
+    will-change: auto;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* HTML editor textarea */
+.html-editor {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    tab-size: 2;
+    resize: none;
+}
+
+/* Preview iframe container */
+.preview-frame {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}

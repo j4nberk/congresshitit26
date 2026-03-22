@@ -1,0 +1,268 @@
+/* ═══════════════════════════════════
+   HİTİT KAYIT KONTROL – PUBLIC CSS
+   Site temasıyla uyumlu (siyah-yeşil)
+   ═══════════════════════════════════ */
+
+/* ── WRAPPER ── */
+.hrcheck-wrapper {
+    max-width: 480px;
+    margin: 2.5rem auto;
+    font-family: "Inter", sans-serif;
+}
+
+/* ── KART ── */
+.hrcheck-card {
+    background: #0a0a0a;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 2.25rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── HEADER ── */
+.hrcheck-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.hrcheck-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #166534;
+    border-radius: 0;
+    color: #fff;
+    margin-bottom: .75rem;
+}
+
+.hrcheck-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
+    color: #ffffff;
+    margin: 0 0 .35rem;
+}
+
+.hrcheck-desc {
+    font-size: .92rem;
+    color: #a3a3a3;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── FORM ALANLARI ── */
+.hrcheck-field {
+    margin-bottom: 1.25rem;
+}
+
+.hrcheck-label {
+    display: block;
+    font-weight: 600;
+    font-size: .9rem;
+    color: #d4d4d4;
+    margin-bottom: .4rem;
+}
+
+.hrcheck-input {
+    width: 100%;
+    padding: .75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0;
+    font-size: 1.05rem;
+    color: #e5e5e5;
+    background: #050505;
+    transition: border-color .2s, box-shadow .2s;
+    box-sizing: border-box;
+    letter-spacing: .5px;
+    font-family: "Inter", sans-serif;
+}
+
+.hrcheck-input:focus {
+    outline: none;
+    border-color: #166534;
+    box-shadow: 0 0 0 2px rgba(22, 101, 52, 0.25);
+}
+
+.hrcheck-input::placeholder {
+    color: #525252;
+    letter-spacing: .3px;
+}
+
+.hrcheck-hint {
+    display: block;
+    font-size: .78rem;
+    color: #737373;
+    margin-top: .35rem;
+    transition: color .2s;
+}
+
+/* Geçerli telefon */
+.hrcheck-field.hrcheck-valid .hrcheck-input {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.15);
+}
+.hrcheck-field.hrcheck-valid .hrcheck-hint {
+    color: #22c55e;
+}
+.hrcheck-field.hrcheck-valid .hrcheck-hint::before {
+    content: '✓ ';
+}
+
+/* Geçersiz telefon */
+.hrcheck-field.hrcheck-invalid .hrcheck-input {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.1);
+}
+.hrcheck-field.hrcheck-invalid .hrcheck-hint {
+    color: #f59e0b;
+}
+
+/* ── RECAPTCHA ── */
+.hrcheck-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+/* ── BUTON ── */
+.hrcheck-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    width: 100%;
+    padding: .8rem 1.5rem;
+    background: #166534;
+    color: #fff;
+    border: 1px solid #15803d;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    cursor: pointer;
+    transition: background .3s, box-shadow .3s, transform .1s;
+    min-height: 48px;
+}
+
+.hrcheck-btn:hover:not(:disabled) {
+    background: #15803d;
+    box-shadow: 0 0 20px rgba(22, 197, 94, 0.2);
+}
+
+.hrcheck-btn:active:not(:disabled) {
+    transform: scale(.98);
+}
+
+.hrcheck-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.hrcheck-btn-spinner {
+    animation: hrcheck-spin .8s linear infinite;
+    display: inline-flex;
+}
+
+@keyframes hrcheck-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── SONUÇ KARTI ── */
+.hrcheck-result {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 0;
+    text-align: center;
+}
+
+.hrcheck-result.hrcheck-result-found {
+    background: rgba(22, 101, 52, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.hrcheck-result-icon {
+    margin-bottom: .75rem;
+}
+
+.hrcheck-result-body {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.hrcheck-result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6rem .85rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hrcheck-result-label {
+    font-size: .82rem;
+    font-weight: 600;
+    color: #22c55e;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+}
+
+.hrcheck-result-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* ── MESAJLAR ── */
+.hrcheck-message {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    font-size: .93rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.hrcheck-msg-error {
+    background: rgba(239, 68, 68, 0.08);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.hrcheck-msg-not-found {
+    background: rgba(245, 158, 11, 0.08);
+    color: #fcd34d;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.hrcheck-msg-not-found svg {
+    flex-shrink: 0;
+    stroke: #f59e0b;
+}
+
+.hrcheck-msg-error svg {
+    flex-shrink: 0;
+    stroke: #ef4444;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 540px) {
+    .hrcheck-wrapper {
+        margin: 1rem;
+    }
+    .hrcheck-card {
+        padding: 1.5rem 1.25rem;
+    }
+    .hrcheck-result-row {
+        flex-direction: column;
+        text-align: center;
+        gap: .15rem;
+    }
+}

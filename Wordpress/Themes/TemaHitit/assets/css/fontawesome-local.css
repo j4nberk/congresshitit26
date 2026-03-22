@@ -1,0 +1,145 @@
+/*!
+ * Font Awesome Free 6.4.0 — MINIMAL (sadece temada kullanılan ikonlar)
+ * License - https://fontawesome.com/license/free
+ */
+
+/* ── Temel sınıflar ── */
+.fa,
+.fa-brands,
+.fa-regular,
+.fa-solid,
+.fab,
+.far,
+.fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+.fa-regular,
+.fa-solid,
+.far,
+.fas {
+  font-family: "Font Awesome 6 Free";
+}
+.fa-brands,
+.fab {
+  font-family: "Font Awesome 6 Brands";
+}
+
+/* ── Boyut yardımcıları ── */
+.fa-xs  { font-size: .75em; }
+.fa-sm  { font-size: .875em; }
+.fa-lg  { font-size: 1.25em; line-height: .05em; vertical-align: -.075em; }
+.fa-xl  { font-size: 1.5em; }
+.fa-2x  { font-size: 2em; }
+.fa-fw  { text-align: center; width: 1.25em; }
+
+/* ── Erişilebilirlik ── */
+.fa-sr-only,
+.fa-sr-only-focusable:not(:focus),
+.sr-only,
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ══════════════════════════════════════
+   @font-face — Solid (weight 900)
+   ══════════════════════════════════════ */
+:host, :root {
+  --fa-style-family-classic: "Font Awesome 6 Free";
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: optional;
+  src: url(../webfonts/fa-solid-900.woff2) format("woff2"),
+       url(../webfonts/fa-solid-900.ttf) format("truetype");
+}
+.fa-solid, .fas { font-weight: 900; }
+
+/* ══════════════════════════════════════
+   @font-face — Regular (weight 400)
+   ══════════════════════════════════════ */
+:host, :root {
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url(../webfonts/fa-regular-400.woff2) format("woff2"),
+       url(../webfonts/fa-regular-400.ttf) format("truetype");
+}
+.fa-regular, .far { font-weight: 400; }
+
+/* ══════════════════════════════════════
+   @font-face — Brands (weight 400)
+   ══════════════════════════════════════ */
+:host, :root {
+  --fa-style-family-brands: "Font Awesome 6 Brands";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url(../webfonts/fa-brands-400.woff2) format("woff2"),
+       url(../webfonts/fa-brands-400.ttf) format("truetype");
+}
+.fa-brands, .fab { font-weight: 400; }
+
+/* ══════════════════════════════════════
+   Kullanılan İkonlar — Solid (5 adet)
+   ══════════════════════════════════════ */
+/* header.php — logo ikonu */
+.fa-rod-asclepius:before,
+.fa-rod-snake:before,
+.fa-staff-aesculapius:before,
+.fa-staff-snake:before        { content: "\e579"; }
+/* header.php — mobil menü */
+.fa-bars:before,
+.fa-navicon:before             { content: "\f0c9"; }
+/* footer.php — adres */
+.fa-location-dot:before,
+.fa-map-marker-alt:before      { content: "\f3c5"; }
+/* footer.php — e-posta */
+.fa-envelope:before            { content: "\f0e0"; }
+/* footer.php — telefon */
+.fa-phone:before               { content: "\f095"; }
+
+/* ══════════════════════════════════════
+   Kullanılan İkonlar — Regular (3 adet)
+   ══════════════════════════════════════ */
+/* single.php — tarih */
+.fa-calendar:before            { content: "\f133"; }
+/* single.php — yazar */
+.fa-user:before                { content: "\f007"; }
+/* single.php — kategori */
+.fa-folder-blank:before,
+.fa-folder:before              { content: "\f07b"; }
+
+/* ══════════════════════════════════════
+   Kullanılan İkonlar — Brands (5 adet)
+   ══════════════════════════════════════ */
+/* footer.php — sosyal medya */
+.fa-instagram:before           { content: "\f16d"; }
+.fa-x-twitter:before           { content: "\e61b"; }
+.fa-youtube:before             { content: "\f167"; }
+.fa-linkedin-in:before         { content: "\f0e1"; }
+.fa-facebook-f:before          { content: "\f39e"; }

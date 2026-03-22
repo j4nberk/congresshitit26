@@ -1,0 +1,72 @@
+{
+    "name": "bildiri-hitit",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "main": "electron/main.js",
+    "author": "Adem Janberk ERSAN",
+    "description": "Bildiri ve hakem yonetimi icin Electron tabanli kongre uygulamasi.",
+    "scripts": {
+        "dev:vite": "vite",
+        "dev:electron": "npx wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
+        "dev": "concurrently -k \"npm run dev:vite\" \"npm run dev:electron\"",
+        "build:vite": "vite build",
+        "build:electron": "electron-builder",
+        "build:electron:dmg": "electron-builder --mac dmg",
+        "build": "npm run build:vite && npm run build:electron"
+    },
+    "build": {
+        "appId": "com.bildirihitit.app",
+        "productName": "BildiriHitit",
+        "directories": {
+            "output": "dist-app"
+        },
+        "mac": {
+            "target": [
+                {
+                    "target": "zip",
+                    "arch": [
+                        "arm64"
+                    ]
+                }
+            ],
+            "icon": "electron-icons/macos/icon.icns"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "portable"
+            ],
+            "icon": "electron-icons/windows/icon.ico"
+        },
+        "linux": {
+            "icon": "electron-icons/linux/icons/512x512.png"
+        },
+        "files": [
+            "dist/**/*",
+            "electron/**/*",
+            "electron-icons/**/*",
+            "package.json"
+        ]
+    },
+    "dependencies": {
+        "electron-store": "^11.0.2",
+        "lucide-react": "^0.575.0",
+        "mammoth": "^1.11.0",
+        "nodemailer": "^6.9.0",
+        "pdfmake": "^0.3.6",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "xlsx": "^0.18.5"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.2.0",
+        "@vitejs/plugin-react": "^5.1.1",
+        "concurrently": "^9.2.1",
+        "cross-env": "^10.1.0",
+        "electron": "^40.6.0",
+        "electron-builder": "^26.8.1",
+        "tailwindcss": "^4.2.0",
+        "vite": "^7.3.1"
+    }
+}

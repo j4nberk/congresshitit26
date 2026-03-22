@@ -1,0 +1,1432 @@
+/*
+Theme Name: Hitit Tıp Kongresi
+Theme URI: https://hitit.edu.tr
+Author: Adem Janberk ERSAN
+Description: Hitit Üniversitesi Tıp Öğrenci Kongresi için özel WordPress teması. Blok editör (Gutenberg) ile tam uyumlu, blok pattern destekli. Gala, Sosyal Program, Kayıt, Bildiri, Çalıştay, Konuşmacı ve Program pattern'leri dahil.
+Version: 2.8.8
+Updated: 2026-03-17
+Requires at least: 6.0 Tested up to: 6.7 Requires PHP: 7.4 License: GNU General Public License v2 or later License URI: http: //www.gnu.org/licenses/gpl-2.0.html
+Text Domain: hitit-kongre Tags: custom-colors,
+custom-logo,
+editor-style,
+block-styles,
+wide-blocks,
+block-patterns */
+
+/* ============================================
+   RESET & GENEL
+   ============================================ */
+html {
+    margin-top: 0 !important;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ============================================
+   WORDPRESS BLOK HIZALAMA
+   ============================================ */
+.alignwide {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.alignfull {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Zorunlu Hiza Sınıfları (Mobile Override Fix) */
+.has-text-align-center {
+    text-align: center !important;
+}
+
+.has-text-align-left {
+    text-align: left !important;
+}
+
+.has-text-align-right {
+    text-align: right !important;
+}
+
+.has-text-align-justify {
+    text-align: justify !important;
+}
+
+/* ============================================
+   WORDPRESS BLOK STİLLERİ
+   ============================================ */
+
+/* Butonlar */
+.wp-block-button__link {
+    font-family: "Playfair Display", serif;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.wp-block-button__link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(22, 197, 94, 0.2);
+}
+
+/* Sütunlar */
+.wp-block-columns {
+    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* Mobilde sarmayı zorla */
+}
+
+.wp-block-columns > .wp-block-column {
+    min-width: 0;
+}
+
+@media (max-width: 781px) {
+    .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+        flex-basis: 100% !important;
+    }
+}
+
+/* Separator */
+.wp-block-separator {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.wp-block-separator.has-background {
+    border-bottom: none;
+}
+
+/* Quote / Alıntı */
+.wp-block-quote {
+    border-left: 3px solid #166534;
+    padding-left: 1.5rem;
+    color: #a3a3a3;
+    font-style: italic;
+}
+
+.wp-block-quote cite {
+    color: #22c55e;
+    font-size: 0.875rem;
+}
+
+/* Tablo */
+.wp-block-table table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.wp-block-table td,
+.wp-block-table th {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1rem;
+}
+
+.wp-block-table th {
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: "Playfair Display", serif;
+}
+
+.wp-block-table td {
+    color: #d4d4d4;
+}
+
+/* Cover Block */
+.wp-block-cover {
+    min-height: 400px;
+}
+
+/* Gallery */
+.wp-block-gallery {
+    gap: 0.5rem !important;
+}
+
+/* Image */
+.wp-block-image img {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wp-block-image figcaption {
+    color: #737373;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Group Block - karanlık kart stili */
+.wp-block-group.has-card-black-background-color {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* EKİBİMİZ SAYFASI DÜZELTME (Legacy Pattern Fix) */
+/* Veritabanında kalan eski pattern HTML'i için zorunlu boyutlandırma */
+.wp-block-column .wp-block-image.border-hititGreen-600 {
+    width: 8rem !important;
+    /* 128px */
+    height: 8rem !important;
+    /* 128px */
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.wp-block-column .wp-block-image.border-hititGreen-600 img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 9999px !important;
+}
+
+/* Konuşmacı kartları - mevcut kayıtlı bloklarda portre alanını sabitle */
+.wp-block-column .wp-block-image.aligncenter.is-resized.has-custom-border {
+    width: 7.5rem !important;
+    height: 7.5rem !important;
+    min-width: 7.5rem;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 1rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 9999px;
+}
+
+.speaker-card__photo {
+    width: 8rem !important;
+    height: 8rem !important;
+    min-width: 8rem;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 1rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 9999px;
+}
+
+.wp-block-column .wp-block-image.aligncenter.is-resized.has-custom-border img,
+.speaker-card__photo img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center;
+    border-radius: 9999px !important;
+}
+
+/* ============================================
+   BİLGİ SAYFALARI (PAKETLER / ÖDEME)
+   ============================================ */
+.hitit-info-page {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+}
+
+.hitit-info-page__hero {
+    max-width: 54rem;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.hitit-info-page__eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 999px;
+    background: rgba(22, 101, 52, 0.12);
+    color: #86efac;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.hitit-info-page__title {
+    margin: 0 0 1rem;
+    color: #ffffff;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+}
+
+.hitit-info-page__lead {
+    margin: 0 auto;
+    color: #a3a3a3;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.hitit-info-page__body {
+    display: grid;
+    gap: 1.75rem;
+}
+
+.hitit-plan-grid,
+.hitit-payment-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.hitit-plan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hitit-payment-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+}
+
+.hitit-section-card--full {
+    grid-column: 1 / -1;
+}
+
+.hitit-plan-card,
+.hitit-section-card {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    background:
+        radial-gradient(circle at top right, rgba(22, 101, 52, 0.16), transparent 38%),
+        rgba(10, 10, 10, 0.92);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+}
+
+.hitit-plan-card--featured,
+.hitit-section-card--primary {
+    border-color: rgba(34, 197, 94, 0.35);
+    box-shadow: 0 24px 60px rgba(22, 101, 52, 0.16);
+}
+
+.hitit-plan-badge {
+    margin: 0 0 1rem;
+    color: #86efac;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.hitit-plan-price {
+    margin: 1.25rem 0 1rem;
+    color: #dcfce7;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.hitit-plan-card h2,
+.hitit-section-card h2 {
+    margin: 0 0 0.9rem;
+    color: #ffffff;
+    font-family: "Playfair Display", serif;
+    font-size: 1.7rem;
+    line-height: 1.2;
+}
+
+.hitit-plan-card p,
+.hitit-section-card p,
+.hitit-section-card li,
+.hitit-plan-card li,
+.hitit-section-card dd {
+    color: #d4d4d4;
+    line-height: 1.8;
+}
+
+.hitit-plan-card ul,
+.hitit-section-card ul,
+.hitit-section-card ol {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+}
+
+.hitit-section-card ol {
+    list-style: decimal;
+}
+
+.hitit-section-card ul {
+    list-style: disc;
+}
+
+.hitit-section-card li,
+.hitit-plan-card li {
+    margin-bottom: 0.75rem;
+}
+
+.hitit-info-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.25rem 0 0;
+}
+
+.hitit-info-list div {
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.hitit-info-list dt {
+    margin-bottom: 0.35rem;
+    color: #86efac;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hitit-info-list dd {
+    margin: 0;
+    word-break: break-word;
+}
+
+.hitit-payment-switcher {
+    margin: 1.5rem 0 2rem;
+}
+
+.hitit-payment-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.hitit-payment-menu__button {
+    display: flex;
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 0.9rem 1rem;
+    min-height: 3.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.95rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: #d4d4d4;
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    overflow: hidden;
+}
+
+.hitit-payment-menu__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.hitit-payment-menu__button:hover,
+.hitit-payment-menu__button:focus-visible {
+    border-color: rgba(34, 197, 94, 0.38);
+    color: #ffffff;
+    outline: none;
+}
+
+.hitit-payment-menu__button.is-active {
+    border-color: rgba(34, 197, 94, 0.4);
+    background: rgba(22, 101, 52, 0.22);
+    color: #dcfce7;
+    box-shadow: 0 16px 32px rgba(22, 101, 52, 0.18);
+}
+
+.hitit-payment-panels {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.hitit-payment-panel {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.hitit-payment-panel.is-open {
+    opacity: 1;
+}
+
+.hitit-payment-panel__inner {
+    padding: 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.hitit-payment-panel__inner h3 {
+    margin: 0 0 1rem;
+    color: #ffffff;
+    font-family: "Playfair Display", serif;
+    font-size: 1.35rem;
+}
+
+@media (max-width: 1024px) {
+    .hitit-plan-grid,
+    .hitit-payment-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hitit-info-page {
+        padding-top: 8.75rem;
+        padding-bottom: 4rem;
+    }
+
+    .hitit-plan-card,
+    .hitit-section-card {
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .hitit-payment-menu {
+        flex-direction: column;
+    }
+
+    .hitit-payment-menu__button {
+        min-height: 3.25rem;
+        padding: 0.8rem 0.65rem;
+        font-size: 0.9rem;
+        flex: 1 1 0;
+        max-width: none;
+        min-width: 0;
+    }
+
+    .hitit-payment-menu__label {
+        font-size: inherit;
+    }
+
+    .hitit-payment-panel__inner {
+        padding: 1rem;
+    }
+
+    .hitit-payment-panel__inner h3 {
+        font-size: 1.15rem;
+    }
+}
+
+/* ============================================
+   FORM PLUGİN UYUMU (WPForms, CF7, Gravity)
+   ============================================ */
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="url"],
+.wpcf7 textarea,
+.wpcf7 select,
+.wpforms-form input[type="text"],
+.wpforms-form input[type="email"],
+.wpforms-form input[type="tel"],
+.wpforms-form input[type="url"],
+.wpforms-form textarea,
+.wpforms-form select,
+.gform_wrapper input[type="text"],
+.gform_wrapper input[type="email"],
+.gform_wrapper input[type="tel"],
+.gform_wrapper textarea,
+.gform_wrapper select {
+    background-color: #0a0a0a !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #e5e5e5 !important;
+    padding: 0.75rem 1rem !important;
+    font-family: "Inter", sans-serif !important;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.wpcf7 input:focus,
+.wpcf7 textarea:focus,
+.wpforms-form input:focus,
+.wpforms-form textarea:focus,
+.gform_wrapper input:focus,
+.gform_wrapper textarea:focus {
+    border-color: #166534 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(22, 101, 52, 0.25) !important;
+}
+
+.wpcf7 input[type="submit"],
+.wpforms-form button[type="submit"],
+.wpforms-form .wpforms-submit,
+.gform_wrapper input[type="submit"],
+.gform_wrapper .gform_button {
+    background-color: #166534 !important;
+    color: #ffffff !important;
+    border: 1px solid #15803d !important;
+    padding: 0.75rem 2rem !important;
+    font-family: "Playfair Display", serif !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wpcf7 input[type="submit"]:hover,
+.wpforms-form button[type="submit"]:hover,
+.gform_wrapper input[type="submit"]:hover {
+    background-color: #15803d !important;
+    box-shadow: 0 0 15px rgba(22, 197, 94, 0.2);
+}
+
+/* Form label stilleri */
+.wpcf7 label,
+.wpforms-form label,
+.wpforms-form .wpforms-field-label,
+.gform_wrapper label,
+.gform_wrapper .gfield_label {
+    color: #d4d4d4 !important;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* ============================================
+   SAYFALANDIRMA
+   ============================================ */
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-links .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #d4d4d4;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+}
+
+.nav-links .page-numbers:hover {
+    border-color: #166534;
+    color: #22c55e;
+}
+
+.nav-links .page-numbers.current {
+    background-color: #166534;
+    border-color: #166534;
+    color: #ffffff;
+}
+
+/* ============================================
+   ARAMA FORMU
+   ============================================ */
+.search-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-form .search-field {
+    flex: 1;
+    background-color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e5e5e5;
+    padding: 0.75rem 1rem;
+    font-family: "Inter", sans-serif;
+}
+
+.search-form .search-field:focus {
+    border-color: #166534;
+    outline: none;
+}
+
+.search-form .search-submit {
+    background-color: #166534;
+    color: #ffffff;
+    border: 1px solid #15803d;
+    padding: 0.75rem 1.5rem;
+    font-family: "Playfair Display", serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form .search-submit:hover {
+    background-color: #15803d;
+}
+
+/* ============================================
+   YORUM ALANI
+   ============================================ */
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-body {
+    background-color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.comment-author .fn {
+    color: #ffffff;
+    font-family: "Playfair Display", serif;
+}
+
+.comment-meta {
+    color: #737373;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.comment-content p {
+    color: #d4d4d4;
+}
+
+.comment-respond input[type="text"],
+.comment-respond input[type="email"],
+.comment-respond input[type="url"],
+.comment-respond textarea {
+    background-color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e5e5e5;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+}
+
+.comment-respond input:focus,
+.comment-respond textarea:focus {
+    border-color: #166534;
+    outline: none;
+}
+
+.comment-respond .submit {
+    background-color: #166534;
+    color: #ffffff;
+    border: 1px solid #15803d;
+    padding: 0.75rem 2rem;
+    font-family: "Playfair Display", serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.comment-respond .submit:hover {
+    background-color: #15803d;
+}
+
+/* ============================================
+   TAG / ETİKET STİLLERİ
+   ============================================ */
+.tag-cloud-link,
+a[rel="tag"] {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a3a3a3;
+    font-size: 0.75rem !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0.125rem;
+}
+
+a[rel="tag"]:hover,
+.tag-cloud-link:hover {
+    border-color: #166534;
+    color: #22c55e;
+}
+
+/* ============================================
+   WİDGET STİLLERİ
+   ============================================ */
+.widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.widget ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.widget ul li a {
+    color: #a3a3a3;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+
+.widget ul li a:hover {
+    color: #22c55e;
+}
+
+/* ============================================
+   MOBİL MENÜ ANİMASYONU
+   ============================================ */
+.mobile-menu-transition {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.mobile-menu-transition.is-open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   PROGRAM ATLASI SAYFASI
+   ============================================ */
+.hitit-program-atlas-page {
+    background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(250, 204, 21, 0.12), transparent 24%),
+        linear-gradient(180deg, #050816 0%, #070b11 42%, #040506 100%);
+    color: #f5f5f5;
+}
+
+.hitit-program-atlas {
+    width: min(1280px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 8.5rem 0 5rem;
+}
+
+.hitit-program-atlas .wp-block-group,
+.hitit-program-atlas .wp-block-buttons,
+.hitit-program-atlas .wp-block-button,
+.hitit-program-atlas .wp-block-heading,
+.hitit-program-atlas p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.hitit-program-atlas__hero {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 2rem;
+    background:
+        linear-gradient(135deg, rgba(9, 14, 24, 0.96), rgba(10, 10, 10, 0.9)),
+        rgba(7, 11, 17, 0.96);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.hitit-program-atlas__hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -8% -18% auto;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.22), transparent 68%);
+    pointer-events: none;
+}
+
+.hitit-program-atlas__hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.hitit-program-atlas__hero-copy,
+.hitit-program-atlas__hero-panel,
+.hitit-program-atlas__meta-card,
+.hitit-program-atlas__day-pill,
+.hitit-program-atlas__day-header,
+.hitit-program-atlas__session-body,
+.hitit-program-atlas__notes-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.hitit-program-atlas__hero-copy {
+    gap: 1.5rem;
+}
+
+.hitit-program-atlas__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0.45rem 0.85rem;
+    border: 1px solid rgba(132, 204, 22, 0.24);
+    border-radius: 999px;
+    background: rgba(20, 83, 45, 0.24);
+    color: #dcfce7;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hitit-program-atlas__title {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+.hitit-program-atlas__lead {
+    max-width: 42rem;
+    margin: 0;
+    color: #d4d4d8;
+    font-size: 1.08rem;
+    line-height: 1.85;
+}
+
+.hitit-program-atlas__meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin-top: 2rem;
+}
+
+.hitit-program-atlas__meta-card {
+    justify-content: flex-end;
+    min-height: 11rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+}
+
+.hitit-program-atlas__meta-card strong,
+.hitit-program-atlas__meta-value {
+    display: block;
+    margin: 0 0 0.35rem;
+    color: #facc15;
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.hitit-program-atlas__meta-card span,
+.hitit-program-atlas__meta-label {
+    margin: 0;
+    color: #a1a1aa;
+    font-size: 0.88rem;
+}
+
+.hitit-program-atlas__hero-panel {
+    position: relative;
+    gap: 1rem;
+    padding: 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+}
+
+.hitit-program-atlas__panel-label,
+.hitit-program-atlas__notes-label,
+.hitit-program-atlas__day-kicker {
+    margin: 0;
+    color: #86efac;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.hitit-program-atlas__panel-days {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.hitit-program-atlas__day-pill {
+    gap: 0.35rem;
+    justify-content: center;
+    min-height: 6.5rem;
+    padding: 0.95rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    background: rgba(4, 6, 10, 0.35);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.hitit-program-atlas__day-pill:hover {
+    transform: translateY(-2px);
+    border-color: rgba(250, 204, 21, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.hitit-program-atlas__day-pill p {
+    display: block;
+    margin: 0;
+    color: #86efac;
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.hitit-program-atlas__day-pill h3 {
+    color: #fafafa;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.hitit-program-atlas__panel-note {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.hitit-program-atlas__custom-intro {
+    position: relative;
+    z-index: 1;
+    max-width: 52rem;
+    margin-top: 1.5rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #d4d4d8;
+}
+
+.hitit-program-atlas__custom-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.wp-block-buttons.hitit-program-atlas__nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.wp-block-buttons.hitit-program-atlas__nav > .wp-block-button {
+    width: 100%;
+}
+
+.hitit-program-atlas__nav-link {
+    margin: 0;
+}
+
+.hitit-program-atlas__nav-link .wp-block-button__link {
+    display: block;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    justify-content: flex-start;
+}
+
+.hitit-program-atlas__nav-link .wp-block-button__link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(134, 239, 172, 0.28);
+}
+
+.hitit-program-atlas__days {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.hitit-program-atlas__day {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.35fr);
+    gap: 1.25rem;
+    align-items: stretch;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.75rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.02));
+}
+
+.hitit-program-atlas__day-header {
+    position: sticky;
+    top: 7.5rem;
+    align-self: start;
+    gap: 1rem;
+    padding: 0.35rem 0.25rem 0 0.1rem;
+}
+
+.hitit-program-atlas__day-header h2,
+.hitit-program-atlas__notes-card h2 {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    line-height: 1.02;
+}
+
+.hitit-program-atlas__day-theme {
+    margin: 0;
+    color: #facc15;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.hitit-program-atlas__day-focus {
+    margin: 0;
+    color: #d4d4d8;
+    line-height: 1.8;
+}
+
+.hitit-program-atlas__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0;
+}
+
+.hitit-program-atlas__tags p,
+.hitit-program-atlas__session-type,
+.hitit-program-atlas__session-track {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0.42rem 0.78rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    line-height: 1;
+}
+
+.hitit-program-atlas__tags p {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: #e4e4e7;
+}
+
+.hitit-program-atlas__timeline {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.hitit-program-atlas__session {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1.3rem;
+    background: rgba(4, 6, 10, 0.42);
+    transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.hitit-program-atlas__session:hover {
+    transform: translateY(-3px);
+    border-color: rgba(250, 204, 21, 0.26);
+    background: rgba(7, 11, 17, 0.74);
+}
+
+.hitit-program-atlas__session-time {
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 104px;
+    gap: 0.65rem;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-right: 0.35rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: "Playfair Display", serif;
+}
+
+.hitit-program-atlas__session-start {
+    margin: 0;
+    color: #fafafa;
+    font-size: 1.45rem;
+    line-height: 1;
+}
+
+.hitit-program-atlas__session-end {
+    margin: 0;
+    color: #fafafa;
+    font-size: 1.45rem;
+    line-height: 1;
+}
+
+.hitit-program-atlas__session-end::before {
+    content: "-";
+    margin-right: 0.65rem;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 1.05rem;
+}
+
+.hitit-program-atlas__session-topline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-bottom: 0;
+}
+
+.hitit-program-atlas__session-body {
+    gap: 0.9rem;
+    min-width: 0;
+}
+
+.hitit-program-atlas__session-type {
+    background: rgba(134, 239, 172, 0.12);
+    color: #bbf7d0;
+}
+
+.hitit-program-atlas__session-track {
+    background: rgba(250, 204, 21, 0.1);
+    color: #fde68a;
+}
+
+.hitit-program-atlas__session h3 {
+    margin: 0;
+    font-size: 1.22rem;
+    line-height: 1.45;
+}
+
+.hitit-program-atlas__session-speaker {
+    margin: 0;
+    color: #86efac;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.hitit-program-atlas__session-summary {
+    margin: 0;
+    color: #d4d4d8;
+    line-height: 1.75;
+}
+
+.hitit-program-atlas__notes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hitit-program-atlas__notes-card {
+    gap: 1rem;
+    height: 100%;
+    justify-content: flex-start;
+    padding: 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.4rem;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.hitit-program-atlas__notes-card h2 {
+    min-height: 4.9em;
+    font-size: 1.55rem;
+}
+
+.hitit-program-atlas__notes-card p:last-child {
+    margin-bottom: 0;
+    color: #d4d4d8;
+    line-height: 1.75;
+}
+
+@media (max-width: 1100px) {
+    .hitit-program-atlas__hero-inner,
+    .hitit-program-atlas__day,
+    .hitit-program-atlas__notes {
+        grid-template-columns: 1fr;
+    }
+
+    .hitit-program-atlas__day-header {
+        position: static;
+    }
+
+    .hitit-program-atlas__meta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 782px) {
+    .hitit-program-atlas {
+        width: min(100% - 1.25rem, 1280px);
+        padding-top: 7.15rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .hitit-program-atlas__hero,
+    .hitit-program-atlas__day,
+    .hitit-program-atlas__notes-card {
+        padding: 1.4rem;
+        border-radius: 1.35rem;
+    }
+
+    .wp-block-buttons.hitit-program-atlas__nav {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .hitit-program-atlas__hero-copy,
+    .hitit-program-atlas__hero-panel,
+    .hitit-program-atlas__day-header,
+    .hitit-program-atlas__session-body,
+    .hitit-program-atlas__notes-card {
+        gap: 0.85rem;
+    }
+
+    .hitit-program-atlas__hero-inner,
+    .hitit-program-atlas__days,
+    .hitit-program-atlas__notes {
+        gap: 1.1rem;
+    }
+
+    .hitit-program-atlas__session {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .hitit-program-atlas__session-time {
+        border-right: 0;
+        padding-right: 0;
+        padding-bottom: 0.9rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex: 0 0 auto;
+    }
+
+    .hitit-program-atlas__meta-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hitit-program-atlas__meta-card,
+    .hitit-program-atlas__day-pill,
+    .hitit-program-atlas__notes-card h2 {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .hitit-program-atlas__title {
+        font-size: 2.55rem;
+        line-height: 0.98;
+    }
+
+    .hitit-program-atlas__lead,
+    .hitit-program-atlas__day-focus,
+    .hitit-program-atlas__session-summary {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .hitit-program-atlas__meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hitit-program-atlas__hero {
+        padding: 1.35rem;
+    }
+
+    .hitit-program-atlas__day,
+    .hitit-program-atlas__notes-card {
+        padding: 1.25rem;
+    }
+
+    .hitit-program-atlas__hero-copy {
+        gap: 1.15rem;
+    }
+
+    .hitit-program-atlas__meta-card {
+        padding: 1.15rem 1rem;
+    }
+
+    .hitit-program-atlas__day-header {
+        gap: 0.8rem;
+    }
+
+    .hitit-program-atlas__day-header h2 {
+        font-size: 1.9rem;
+    }
+
+    .hitit-program-atlas__day-theme {
+        font-size: 1rem;
+    }
+
+    .hitit-program-atlas__session {
+        padding: 1rem;
+        border-radius: 1.1rem;
+    }
+
+    .hitit-program-atlas__session-time {
+        gap: 0.5rem;
+    }
+
+    .hitit-program-atlas__session-start,
+    .hitit-program-atlas__session-end {
+        font-size: 1.2rem;
+    }
+
+    .hitit-program-atlas__session-end::before {
+        margin-right: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .hitit-program-atlas__session h3 {
+        font-size: 1.08rem;
+        line-height: 1.4;
+    }
+
+    .hitit-program-atlas__notes-card h2 {
+        font-size: 1.35rem;
+        line-height: 1.12;
+    }
+}
+
+@media (max-width: 420px) {
+    .hitit-program-atlas {
+        width: min(100% - 0.9rem, 1280px);
+        padding-top: 6.9rem;
+    }
+
+    .hitit-program-atlas__hero,
+    .hitit-program-atlas__day,
+    .hitit-program-atlas__notes-card {
+        padding: 1.05rem;
+    }
+
+    .hitit-program-atlas__eyebrow,
+    .hitit-program-atlas__panel-label,
+    .hitit-program-atlas__notes-label,
+    .hitit-program-atlas__day-kicker {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+    }
+
+    .hitit-program-atlas__title {
+        font-size: 2.2rem;
+    }
+
+    .hitit-program-atlas__lead,
+    .hitit-program-atlas__day-focus,
+    .hitit-program-atlas__session-summary,
+    .hitit-program-atlas__panel-note {
+        font-size: 0.95rem;
+    }
+}

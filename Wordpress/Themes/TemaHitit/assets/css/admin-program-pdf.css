@@ -1,0 +1,131 @@
+.hitit-program-pdf-admin {
+    max-width: 1120px;
+    margin-top: 24px;
+}
+
+.hitit-program-pdf-admin__hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 28px;
+    border: 1px solid #d9e7de;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #f7fbf8, #eef7f1);
+    box-shadow: 0 12px 32px rgba(23, 69, 42, 0.08);
+}
+
+.hitit-program-pdf-admin__hero h1 {
+    margin: 8px 0 12px;
+    font-size: 34px;
+    line-height: 1.05;
+}
+
+.hitit-program-pdf-admin__hero p {
+    max-width: 700px;
+    margin: 0;
+    color: #476756;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.hitit-program-pdf-admin__eyebrow {
+    margin: 0;
+    color: #2d7d4d;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.hitit-program-pdf-admin__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-end;
+    gap: 10px;
+    min-width: 240px;
+}
+
+.hitit-program-pdf-admin__meta span {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid #cfe3d5;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #235b39;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hitit-program-pdf-admin__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.hitit-program-pdf-admin__card {
+    padding: 22px;
+    border: 1px solid #dfe8e2;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(16, 24, 20, 0.04);
+}
+
+.hitit-program-pdf-admin__card h2 {
+    margin: 0 0 16px;
+    font-size: 18px;
+}
+
+.hitit-program-pdf-admin__form {
+    display: grid;
+    gap: 12px;
+}
+
+.hitit-program-pdf-admin__form label {
+    color: #3d5c4b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.hitit-program-pdf-admin__form select {
+    width: 100%;
+    min-height: 44px;
+}
+
+.hitit-program-pdf-admin__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.hitit-program-pdf-admin__actions .button.button-hero {
+    background: #2d7d4d;
+    border-color: #2d7d4d;
+    color: #ffffff;
+}
+
+.hitit-program-pdf-admin__list {
+    margin: 0;
+    padding-left: 18px;
+    color: #476756;
+}
+
+.hitit-program-pdf-admin__list li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+    .hitit-program-pdf-admin__hero,
+    .hitit-program-pdf-admin__grid {
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+
+    .hitit-program-pdf-admin__meta {
+        justify-content: flex-start;
+        min-width: 0;
+    }
+}

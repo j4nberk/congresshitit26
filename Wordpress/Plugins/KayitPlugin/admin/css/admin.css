@@ -1,0 +1,52 @@
+/* Kongre Kayıt — Admin Stilleri */
+.kongre-wrap {
+    max-width: 1200px;
+}
+.kongre-wrap h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.kongre-wrap .title-count {
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+}
+.kongre-wrap h2 {
+    margin-top: 28px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Doluluk bar */
+.kongre-wrap .wp-list-table th,
+.kongre-wrap .wp-list-table td {
+    vertical-align: middle;
+}
+.kongre-wrap .wp-list-table small {
+    color: #888;
+    font-size: 0.85em;
+}
+
+/* Mail durumu */
+.kongre-wrap .wp-list-table .status-sent { color: #22c55e; }
+.kongre-wrap .wp-list-table .status-pending { color: #f59e0b; }
+.kongre-wrap .wp-list-table .status-failed { color: #ef4444; }
+
+/* Form table spacing */
+.kongre-wrap .form-table th {
+    width: 200px;
+}
+.kongre-wrap .form-table .description {
+    font-style: italic;
+    color: #888;
+}
+
+/* Tablenav pagination */
+.kongre-wrap .tablenav {
+    margin-top: 12px;
+}
+.kongre-wrap .tablenav-pages .button {
+    min-width: 32px;
+    text-align: center;
+}

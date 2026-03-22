@@ -1,0 +1,147 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 3,
+    "settings": {
+        "appearanceTools": true,
+        "layout": {
+            "contentSize": "1280px",
+            "wideSize": "1440px"
+        },
+        "color": {
+            "palette": [
+                { "slug": "hitit-green-50", "color": "#f0fdf4", "name": "Hitit Yeşil 50" },
+                { "slug": "hitit-green-100", "color": "#dcfce7", "name": "Hitit Yeşil 100" },
+                { "slug": "hitit-green-500", "color": "#22c55e", "name": "Hitit Yeşil 500" },
+                { "slug": "hitit-green-600", "color": "#16a34a", "name": "Hitit Yeşil 600" },
+                { "slug": "hitit-green-700", "color": "#15803d", "name": "Hitit Yeşil 700" },
+                { "slug": "hitit-green-800", "color": "#166534", "name": "Hitit Yeşil 800" },
+                { "slug": "hitit-green-900", "color": "#14532d", "name": "Hitit Yeşil 900" },
+                { "slug": "hitit-green-950", "color": "#052e16", "name": "Hitit Yeşil 950" },
+                { "slug": "dark-black", "color": "#050505", "name": "Koyu Siyah" },
+                { "slug": "card-black", "color": "#0a0a0a", "name": "Kart Siyah" },
+                { "slug": "white", "color": "#ffffff", "name": "Beyaz" },
+                { "slug": "gray-300", "color": "#d4d4d4", "name": "Gri 300" },
+                { "slug": "gray-400", "color": "#a3a3a3", "name": "Gri 400" },
+                { "slug": "gray-500", "color": "#737373", "name": "Gri 500" },
+                { "slug": "gray-600", "color": "#525252", "name": "Gri 600" }
+            ]
+        },
+        "typography": {
+            "fontFamilies": [
+                {
+                    "fontFamily": "\"Playfair Display\", serif",
+                    "slug": "serif",
+                    "name": "Playfair Display"
+                },
+                {
+                    "fontFamily": "\"Inter\", sans-serif",
+                    "slug": "sans",
+                    "name": "Inter"
+                }
+            ],
+            "fontSizes": [
+                { "slug": "small", "size": "0.875rem", "name": "Küçük" },
+                { "slug": "medium", "size": "1rem", "name": "Orta" },
+                { "slug": "large", "size": "1.25rem", "name": "Büyük" },
+                { "slug": "x-large", "size": "1.5rem", "name": "Çok Büyük" },
+                { "slug": "xx-large", "size": "2.25rem", "name": "Ekstra Büyük" },
+                { "slug": "huge", "size": "3.75rem", "name": "Devasa" }
+            ]
+        },
+        "spacing": {
+            "units": ["px", "rem", "em", "%", "vw", "vh"]
+        },
+        "blocks": {
+            "core/button": {
+                "color": {
+                    "background": true,
+                    "text": true
+                }
+            }
+        }
+    },
+    "styles": {
+        "color": {
+            "background": "#050505",
+            "text": "#e5e5e5"
+        },
+        "typography": {
+            "fontFamily": "\"Inter\", sans-serif",
+            "lineHeight": "1.6"
+        },
+        "elements": {
+            "heading": {
+                "typography": {
+                    "fontFamily": "\"Playfair Display\", serif",
+                    "fontWeight": "700"
+                },
+                "color": {
+                    "text": "#ffffff"
+                }
+            },
+            "link": {
+                "color": {
+                    "text": "#22c55e"
+                },
+                ":hover": {
+                    "color": {
+                        "text": "#15803d"
+                    }
+                }
+            },
+            "button": {
+                "color": {
+                    "background": "#166534",
+                    "text": "#ffffff"
+                },
+                "border": {
+                    "radius": "0px",
+                    "color": "#15803d",
+                    "width": "1px"
+                },
+                "typography": {
+                    "fontFamily": "\"Playfair Display\", serif"
+                },
+                ":hover": {
+                    "color": {
+                        "background": "#15803d"
+                    }
+                }
+            }
+        },
+        "blocks": {
+            "core/group": {
+                "spacing": {
+                    "padding": {
+                        "left": "1rem",
+                        "right": "1rem"
+                    }
+                }
+            }
+        }
+    },
+    "templateParts": [
+        {
+            "name": "header",
+            "title": "Header",
+            "area": "header"
+        },
+        {
+            "name": "footer",
+            "title": "Footer",
+            "area": "footer"
+        }
+    ],
+    "customTemplates": [
+        {
+            "name": "blank",
+            "title": "Boş Sayfa",
+            "postTypes": ["page"]
+        },
+        {
+            "name": "full-width",
+            "title": "Tam Genişlik",
+            "postTypes": ["page", "post"]
+        }
+    ]
+}

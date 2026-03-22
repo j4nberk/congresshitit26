@@ -1,0 +1,545 @@
+/* ═══════════════════════════════════
+   HİTİT FORM – PUBLIC CSS
+   ═══════════════════════════════════ */
+
+/* ── GENEL ── */
+.hitit-form-wrapper {
+    --hf-font: "Inter", sans-serif;
+    --hf-heading-font: "Playfair Display", serif;
+    --hf-max-width: 700px;
+    --hf-bg: #0a0a0a;
+    --hf-label-color: #d4d4d4;
+    --hf-border-color: rgba(255, 255, 255, 0.15);
+    --hf-focus-color: #166534;
+    --hf-focus-shadow: rgba(22, 101, 52, 0.25);
+    --hf-input-color: #e5e5e5;
+    --hf-input-bg: #050505;
+    --hf-btn-bg: #166534;
+    --hf-btn-color: #ffffff;
+    --hf-btn-hover: #15803d;
+    --hf-radius: 0px;
+    --hf-accent-rgb: 22, 101, 52;
+
+    max-width: var(--hf-max-width);
+    margin: 2rem auto;
+    font-family: var(--hf-font);
+    background: var(--hf-bg);
+}
+
+.hitit-form-wrapper h2 {
+    font-size: 1.6rem;
+    margin-bottom: .4rem;
+    color: #ffffff;
+    font-family: var(--hf-heading-font);
+}
+
+.hitit-form-wrapper .hitit-form-desc {
+    color: #a3a3a3;
+    margin-bottom: 1.5rem;
+    font-size: .95rem;
+}
+
+/* ── ALAN SATIRLARI ── */
+.hitit-form-row {
+    margin-bottom: 1.25rem;
+    transition: opacity .25s, max-height .35s ease, margin .25s;
+}
+
+.hitit-form-row-50 {
+    display: inline-block;
+    width: calc(50% - 8px);
+    vertical-align: top;
+    margin-right: 12px;
+}
+
+.hitit-form-row-50:nth-child(2n) {
+    margin-right: 0;
+}
+
+.hitit-form-row-33 {
+    display: inline-block;
+    width: calc(33.333% - 10px);
+    vertical-align: top;
+    margin-right: 12px;
+}
+
+.hitit-form-row-33:nth-child(3n) {
+    margin-right: 0;
+}
+
+/* ── LABEL ── */
+.hitit-form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: .35rem;
+    color: var(--hf-label-color);
+    font-size: .92rem;
+}
+
+.hitit-form-required {
+    color: #ef4444;
+    margin-left: 2px;
+}
+
+/* ── INPUT STİLLERİ ── */
+.hitit-form-input,
+.hitit-form-select,
+.hitit-form-textarea {
+    width: 100%;
+    padding: .65rem .85rem;
+    border: 1.5px solid var(--hf-border-color);
+    border-radius: var(--hf-radius);
+    font-size: .95rem;
+    color: var(--hf-input-color);
+    background: var(--hf-input-bg);
+    transition: border-color .2s, box-shadow .2s;
+    box-sizing: border-box;
+    font-family: var(--hf-font);
+}
+
+.hitit-form-input:focus,
+.hitit-form-select:focus,
+.hitit-form-textarea:focus {
+    outline: none;
+    border-color: var(--hf-focus-color);
+    box-shadow: 0 0 0 3px var(--hf-focus-shadow);
+}
+
+.hitit-form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+select.hitit-form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a3a3a3' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-color: var(--hf-input-bg);
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+/* ── RADIO & CHECKBOX GRUPLARI ── */
+.hitit-form-radio-group,
+.hitit-form-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.hitit-form-radio-label,
+.hitit-form-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .4rem .6rem;
+    border-radius: calc(var(--hf-radius) + 4px);
+    cursor: pointer;
+    font-size: .93rem;
+    color: var(--hf-label-color);
+    transition: background .15s;
+}
+
+.hitit-form-radio-label a,
+.hitit-form-checkbox-label a {
+    color: var(--hf-btn-bg);
+    text-decoration: underline;
+    transition: color .2s;
+}
+
+.hitit-form-radio-label a:hover,
+.hitit-form-checkbox-label a:hover {
+    color: var(--hf-btn-hover);
+}
+
+.hitit-form-radio-label:hover,
+.hitit-form-checkbox-label:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hitit-form-radio-label input[type="radio"],
+.hitit-form-checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #22c55e;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+/* ── DOSYA ── */
+.hitit-form-file {
+    width: 100%;
+    padding: .5rem;
+    border: 1.5px dashed var(--hf-border-color);
+    border-radius: var(--hf-radius);
+    background: var(--hf-input-bg);
+    color: var(--hf-label-color);
+    font-size: .9rem;
+    cursor: pointer;
+    transition: border-color .2s;
+}
+
+.hitit-form-file:hover {
+    border-color: var(--hf-focus-color);
+}
+
+/* ── KOŞULLU GİZLEME ── */
+/* JS yüklenmeden önce koşullu alanlar her zaman gizli kalır */
+.hitit-form-row[data-conditions] {
+    display: none !important;
+}
+
+/* JS koşulu sağlandığında .hitit-cond-visible ile gösterilir */
+.hitit-form-row[data-conditions].hitit-cond-visible {
+    display: block !important;
+}
+
+/* Ek: 50% ve 33% genişlikler koşullu gösterimde korunsun */
+.hitit-form-row-50[data-conditions].hitit-cond-visible {
+    display: inline-block !important;
+}
+
+.hitit-form-row-33[data-conditions].hitit-cond-visible {
+    display: inline-block !important;
+}
+
+.hitit-form-row.hitit-hidden {
+    display: none !important;
+}
+
+/* ── BAŞLIK & AYIRICI ── */
+.hitit-form-heading {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: var(--hf-heading-font);
+    margin: .5rem 0 .25rem;
+    padding-bottom: .4rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.hitit-form-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: .75rem 0;
+}
+
+/* ── HTML İÇERİK ALANI ── */
+.hitit-form-html {
+    padding: .75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: calc(var(--hf-radius) + 4px);
+    border-left: 3px solid #166534;
+    color: #a3a3a3;
+    font-size: .92rem;
+    line-height: 1.6;
+}
+
+/* ── TELEFON ALANI ── */
+.hitit-form-hint {
+    display: block;
+    font-size: .78rem;
+    color: #737373;
+    margin-top: .3rem;
+}
+
+.hitit-form-row.hitit-field-valid .hitit-form-input.hitit-phone-input {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, .1);
+}
+
+.hitit-form-row.hitit-field-valid .hitit-form-hint {
+    color: #22c55e;
+}
+
+.hitit-form-row.hitit-field-valid .hitit-form-hint::before {
+    content: '✓ ';
+}
+
+.hitit-form-row.hitit-field-error .hitit-form-hint {
+    color: #ef4444;
+}
+
+/* ── HATA ── */
+.hitit-form-row.hitit-field-error .hitit-form-input,
+.hitit-form-row.hitit-field-error .hitit-form-select,
+.hitit-form-row.hitit-field-error .hitit-form-textarea,
+.hitit-form-row.hitit-field-error .hitit-form-file {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, .1);
+}
+
+.hitit-error-msg {
+    color: #ef4444;
+    font-size: .82rem;
+    margin-top: .3rem;
+}
+
+/* ── GÖNDER BUTONU ── */
+.hitit-form-submit-row {
+    margin-top: .5rem;
+}
+
+.hitit-form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .75rem 2rem;
+    background: var(--hf-btn-bg);
+    color: var(--hf-btn-color);
+    border: 1px solid #15803d;
+    border-radius: var(--hf-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    cursor: pointer;
+    transition: background .2s, transform .1s, box-shadow .2s;
+    min-width: 140px;
+    min-height: 46px;
+}
+
+.hitit-form-submit:hover {
+    background: var(--hf-btn-hover);
+    box-shadow: 0 0 20px rgba(22, 197, 94, 0.2);
+}
+
+.hitit-form-submit:active {
+    transform: scale(.98);
+}
+
+.hitit-form-submit:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
+.hitit-form-spinner {
+    animation: hitit-spin .8s linear infinite;
+    display: inline-flex;
+}
+
+@keyframes hitit-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── MESAJLAR ── */
+.hitit-form-wait-message {
+    padding: 2rem;
+    border-radius: var(--hf-radius);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.hitit-form-message {
+    padding: 1rem 1.25rem;
+    border-radius: var(--hf-radius);
+    margin-top: 1rem;
+    font-size: .95rem;
+    font-weight: 500;
+}
+
+.hitit-form-message.success {
+    background: #166534;
+    /* Solid Dark Green */
+    color: #ffffff;
+    /* White text */
+    border: 1px solid #14532d;
+}
+
+.hitit-form-message.success strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.hitit-form-message.success em {
+    color: #dcfce7;
+    /* Light green for emphasis */
+}
+
+.hitit-form-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    .hitit-form-wrapper {
+        margin: 1rem;
+    }
+
+    .hitit-form-row-50,
+    .hitit-form-row-33 {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    /* Mobilde koşullu görünür alanlar da block olmalı */
+    .hitit-form-row-50[data-conditions].hitit-cond-visible,
+    .hitit-form-row-33[data-conditions].hitit-cond-visible {
+        display: block !important;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .hitit-form-submit {
+        width: 100%;
+    }
+}
+
+/* ── SKELETON LOADER (GHOST LOADING) ── */
+.hitit-form-skeleton {
+    display: none;
+    padding: 10px 0;
+}
+
+.hitit-form-loading .hitit-form {
+    display: none !important;
+}
+
+.hitit-form-loading .hitit-form-skeleton {
+    display: block;
+    animation: hitit-fade-in 0.3s;
+}
+
+.hfs-header {
+    height: 32px;
+    width: 60%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hfs-line {
+    height: 12px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hfs-w-100 {
+    width: 100%;
+}
+
+.hfs-w-60 {
+    width: 60%;
+}
+
+.hfs-w-40 {
+    width: 40%;
+}
+
+.hfs-w-30 {
+    width: 30%;
+}
+
+.hfs-h-lg {
+    height: 100px;
+}
+
+.hfs-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.hfs-col {
+    flex: 1;
+}
+
+.hfs-label {
+    height: 14px;
+    width: 40%;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hfs-input {
+    height: 42px;
+    width: 100%;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hfs-area {
+    height: 100px;
+    width: 100%;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+}
+
+.hfs-btn {
+    height: 48px;
+    width: 140px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.hfs-gap {
+    height: 20px;
+}
+
+/* Shimmer Animation */
+.hitit-form-loading .hfs-header,
+.hitit-form-loading .hfs-line,
+.hitit-form-loading .hfs-label,
+.hitit-form-loading .hfs-input,
+.hitit-form-loading .hfs-area,
+.hitit-form-loading .hfs-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.hitit-form-loading .hfs-header::after,
+.hitit-form-loading .hfs-line::after,
+.hitit-form-loading .hfs-label::after,
+.hitit-form-loading .hfs-input::after,
+.hitit-form-loading .hfs-area::after,
+.hitit-form-loading .hfs-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    animation: hfs-shimmer 1.5s infinite;
+    transform: translateX(-100%);
+}
+
+@keyframes hfs-shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes hitit-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

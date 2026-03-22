@@ -1,0 +1,515 @@
+/* ═══════════════════════════════════
+   HITIT FORM BUILDER - ADMIN CSS
+   ═══════════════════════════════════ */
+
+/* ── GENEL ── */
+.hitit-admin-wrap {
+    max-width: 100%;
+}
+
+.hitit-panel {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+.hitit-panel h3 {
+    margin: 0;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 13px;
+    font-weight: 600;
+    background: #f9f9f9;
+    border-radius: 4px 4px 0 0;
+}
+
+/* ── BOŞ DURUM ── */
+.hitit-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+.hitit-empty-state .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #c3c4c7;
+}
+.hitit-empty-state h2 {
+    color: #50575e;
+}
+
+/* ═══════════════════════════════════
+   BUILDER LAYOUT (3 kolon)
+   ═══════════════════════════════════ */
+.hitit-builder-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 320px;
+    gap: 16px;
+    margin-top: 16px;
+    align-items: start;
+}
+
+@media (max-width: 1200px) {
+    .hitit-builder-layout {
+        grid-template-columns: 180px 1fr 280px;
+    }
+}
+
+/* ── SOL: ALAN PALETİ ── */
+.hitit-builder-sidebar .hitit-panel {
+    position: sticky;
+    top: 42px;
+}
+.hitit-field-palette {
+    padding: 8px;
+}
+.hitit-palette-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    cursor: grab;
+    font-size: 12px;
+    transition: all 0.15s;
+    user-select: none;
+}
+.hitit-palette-item:hover {
+    background: #e8f0fe;
+    border-color: #2271b1;
+    color: #2271b1;
+}
+.hitit-palette-item:active {
+    cursor: grabbing;
+}
+.hitit-palette-item .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #787c82;
+}
+.hitit-palette-item:hover .dashicons {
+    color: #2271b1;
+}
+.hitit-dragging {
+    background: #2271b1 !important;
+    color: #fff !important;
+    border-color: #2271b1 !important;
+    border-radius: 4px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0.9;
+}
+.hitit-dragging .dashicons {
+    color: #fff !important;
+}
+
+/* ── ORTA: CANVAS ── */
+.hitit-builder-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #f9f9f9;
+    gap: 12px;
+}
+.hitit-form-title-input {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    background: #fff;
+}
+.hitit-form-title-input:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: none;
+}
+.hitit-builder-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+.hitit-shortcode-badge {
+    background: #f0f0f0;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #50575e;
+    border: 1px solid #dcdcde;
+    user-select: all;
+    cursor: text;
+}
+
+.hitit-builder-canvas {
+    min-height: 300px;
+    padding: 16px;
+    position: relative;
+}
+
+/* Boş canvas */
+.hitit-canvas-empty {
+    text-align: center;
+    padding: 80px 20px;
+    color: #a7aaad;
+    border: 2px dashed #dcdcde;
+    border-radius: 8px;
+}
+.hitit-canvas-empty .dashicons {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+/* ── ALAN KARTLARI ── */
+.hitit-field-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    transition: all 0.15s;
+    cursor: pointer;
+}
+.hitit-field-card:hover {
+    border-color: #2271b1;
+    box-shadow: 0 1px 4px rgba(34,113,177,0.1);
+}
+.hitit-field-card.selected {
+    border-color: #2271b1;
+    background: #f0f6fc;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.hitit-field-handle {
+    cursor: grab;
+    color: #c3c4c7;
+    padding: 2px;
+    flex-shrink: 0;
+}
+.hitit-field-handle:active {
+    cursor: grabbing;
+}
+.hitit-field-handle .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+.hitit-field-card:hover .hitit-field-handle {
+    color: #787c82;
+}
+
+.hitit-field-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+.hitit-field-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #2271b1;
+    flex-shrink: 0;
+}
+.hitit-field-label {
+    font-weight: 500;
+    font-size: 13px;
+    color: #1d2327;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.hitit-field-type {
+    font-size: 11px;
+    color: #a7aaad;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.hitit-req-badge {
+    color: #d63638;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.hitit-cond-badge {
+    font-size: 14px;
+    flex-shrink: 0;
+    cursor: help;
+}
+.hitit-width-badge {
+    font-size: 10px;
+    color: #787c82;
+    background: #f0f0f0;
+    padding: 1px 5px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.hitit-field-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+.hitit-field-card:hover .hitit-field-actions {
+    opacity: 1;
+}
+.hitit-field-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 3px;
+    color: #787c82;
+    line-height: 1;
+}
+.hitit-field-actions button:hover {
+    background: #f0f0f0;
+    color: #1d2327;
+}
+.hitit-field-actions button .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+.hitit-field-actions .hitit-field-delete:hover {
+    color: #d63638;
+    background: #fcf0f1;
+}
+
+/* Sortable placeholder */
+.hitit-field-placeholder {
+    border: 2px dashed #2271b1;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    min-height: 44px;
+    background: #f0f6fc;
+}
+
+/* ── SAĞ: AYARLAR PANELİ ── */
+.hitit-builder-settings {
+    position: sticky;
+    top: 42px;
+}
+.hitit-settings-body {
+    padding: 12px 16px;
+}
+.hitit-setting-row {
+    margin-bottom: 14px;
+}
+.hitit-setting-row:last-child {
+    margin-bottom: 0;
+}
+.hitit-setting-row > label {
+    display: block;
+    font-weight: 500;
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #1d2327;
+}
+.hitit-setting-row .description {
+    font-size: 11px;
+    margin-top: 3px;
+    color: #787c82;
+}
+.hitit-setting-row input[type="text"],
+.hitit-setting-row input[type="email"],
+.hitit-setting-row input[type="url"],
+.hitit-setting-row input[type="number"],
+.hitit-setting-row select,
+.hitit-setting-row textarea {
+    font-size: 13px;
+}
+
+/* ── SEÇENEK LİSTESİ ── */
+.hitit-option-item {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+    align-items: center;
+}
+.hitit-option-item input {
+    flex: 1;
+}
+.hitit-option-remove {
+    color: #d63638 !important;
+    flex-shrink: 0;
+}
+
+/* ── KOŞULLU MANTIK ── */
+.hitit-conditions-section {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 14px;
+    margin-top: 14px;
+}
+.hitit-conditions-section h4 {
+    margin: 0 0 4px;
+    font-size: 12px;
+    color: #2271b1;
+}
+.hitit-condition-item {
+    background: #f9f9f9;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+.hitit-condition-item select,
+.hitit-condition-item input {
+    font-size: 12px;
+}
+.hitit-cond-remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: #d63638 !important;
+    font-size: 11px;
+    padding: 2px 6px !important;
+    min-height: 0 !important;
+}
+
+/* ── NOTICE ── */
+.hitit-notice {
+    margin: 10px 0;
+}
+
+/* ── GÖNDERİM SAYISI ── */
+.hitit-entry-count {
+    font-size: 14px;
+    font-weight: normal;
+    color: #787c82;
+}
+
+/* ── GÖRÜNÜM AYARLARI ── */
+.hitit-color-picker {
+    width: 40px;
+    height: 32px;
+    padding: 2px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    cursor: pointer;
+    vertical-align: middle;
+    background: #fff;
+}
+.hitit-color-picker::-webkit-color-swatch-wrapper {
+    padding: 2px;
+}
+.hitit-color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 2px;
+}
+.hitit-color-text {
+    width: 80px !important;
+    font-family: monospace;
+    font-size: 12px !important;
+    padding: 4px 6px !important;
+    vertical-align: middle;
+    margin-left: 6px;
+}
+.hitit-color-reset {
+    vertical-align: middle;
+    margin-left: 4px !important;
+    min-height: 28px !important;
+    padding: 0 6px !important;
+    font-size: 14px !important;
+    line-height: 26px !important;
+    color: #787c82 !important;
+}
+.hitit-color-reset:hover {
+    color: #d63638 !important;
+}
+.hitit-setting-row input[type="range"] {
+    width: calc(100% - 50px);
+    vertical-align: middle;
+    accent-color: #2271b1;
+}
+#hitit-style-radius-val {
+    display: inline-block;
+    width: 40px;
+    text-align: right;
+    font-size: 12px;
+    color: #50575e;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+/* ── ENTRİES TABLOSU ── */
+.hitit-admin-wrap .wp-list-table td {
+    max-width: none;
+    overflow: visible;
+    white-space: nowrap;
+}
+.hitit-admin-wrap .wp-list-table td a[target="_blank"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #2271b1;
+    text-decoration: none;
+    max-width: 100%;
+}
+.hitit-admin-wrap .wp-list-table td a[target="_blank"]:hover {
+    color: #135e96;
+    text-decoration: underline;
+}
+.hitit-admin-wrap .wp-list-table td img {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #dcdcde;
+    background: #f6f7f7;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+    .hitit-builder-layout {
+        grid-template-columns: 1fr;
+    }
+    .hitit-builder-sidebar .hitit-panel,
+    .hitit-builder-settings {
+        position: static;
+    }
+    .hitit-field-palette {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 4px;
+    }
+    .hitit-palette-item {
+        margin-bottom: 0;
+    }
+}
+
+/* Entries table wrapper for horizontal scrolling */
+.hitit-entries-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 16px;
+}
+.hitit-entries-table-wrapper table {
+    min-width: 600px;
+    width: auto;
+}
