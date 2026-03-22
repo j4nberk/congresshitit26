@@ -1,77 +1,77 @@
 # KayitPlugin
 
-KayitPlugin, kongre kayitlarinda atolye tercihlerini isleyen, kontenjan bazli yerlestirme yapan ve masaustu operasyon araclarina veri saglayan WordPress eklentisidir. Sistem, `FormHitit` uzerinden gelen form verisini yakalar ve kongreye ozel kayit mantigini uygular.
+KayitPlugin, kongre kayıtlarında atölye tercihlerini işleyen, kontenjan bazlı yerleştirme yapan ve masaüstü operasyon araçlarına veri sağlayan WordPress eklentisidir. Sistem, `FormHitit` üzerinden gelen form verisini yakalar ve kongreye özel kayıt mantığını uygular.
 
-## Temel Gorevleri
+## Temel Görevleri
 
-- Form gonderiminden sonra atolye tercihlerini islemek
-- Kontenjana gore anlik yerlestirme yapmak
-- Kayit verisini kendi tablolarinda tutmak
-- Google Sheets veya operasyon ekranlari icin veriyi hazirlamak
-- Doluluk durumunu public tarafta gostermek
-- Mail kuyrugu isletmek
-- Masaustu uygulamasi icin REST API saglamak
+- Form gönderiminden sonra atölye tercihlerini işlemek
+- Kontenjana göre anlık yerleştirme yapmak
+- Kayıt verisini kendi tablolarında tutmak
+- Google Sheets veya operasyon ekranları için veriyi hazırlamak
+- Doluluk durumunu public tarafta göstermek
+- Mail kuyruğu işletmek
+- Masaüstü uygulaması için REST API sağlamak
 
-## Bagimli Oldugu Eklenti
+## Bağımlı Olduğu Eklenti
 
-Bu eklenti, [FormHitit](../FormHitit) aktif olmadan beklenen sekilde calismaz.
+Bu eklenti, [FormHitit](../FormHitit) aktif olmadan beklenen şekilde çalışmaz.
 
 ## Kurulum
 
-1. Bu klasoru `wp-content/plugins/` altina kopyalayin.
-2. `FormHitit` eklentisinin aktif oldugundan emin olun.
-3. `KayitPlugin` eklentisini etkinlestirin.
-4. Admin panelinde hedef form, alan eslesmeleri ve atolye ayarlarini tamamlayin.
+1. Bu klasörü `wp-content/plugins/` altına kopyalayın.
+2. `FormHitit` eklentisinin aktif olduğundan emin olun.
+3. `KayitPlugin` eklentisini etkinleştirin.
+4. Admin panelinde hedef form, alan eşleşmeleri ve atölye ayarlarını tamamlayın.
 
-## Aktivasyon Sirasinda Neler Olur?
+## Aktivasyon Sırasında Neler Olur?
 
-- Kayit tablolari olusturulur
-- Varsayilan atolye verileri eklenir
-- Mail kuyrugu icin WP-Cron zamanlanir
+- Kayıt tabloları oluşturulur
+- Varsayılan atölye verileri eklenir
+- Mail kuyruğu için WP-Cron zamanlanır
 
 ## Admin Panelindeki Alanlar
 
-Eklenti yonetim ekraninda su bolumler bulunur:
+Eklenti yönetim ekranında şu bölümler bulunur:
 
 - Doluluk Durumu
-- Kayitlar
-- Atolye Listeleri
-- Atolyeler
-- Kontenjan Yonetimi
-- Mail Kuyrugu
+- Kayıtlar
+- Atölye Listeleri
+- Atölyeler
+- Kontenjan Yönetimi
+- Mail Kuyruğu
 - Ayarlar
 
-## Public Tarafta Ne Saglar?
+## Public Tarafta Ne Sağlar?
 
-Eklenti, kullanicinin gorecegi doluluk verisini AJAX ile dondurebilir. Bunun icin kendi JS ve CSS dosyalarini yukler.
+Eklenti, kullanıcının göreceği doluluk verisini AJAX ile döndürebilir. Bunun için kendi JS ve CSS dosyalarını yükler.
 
-## Masaustu API
+## Masaüstü API
 
-KayitPlugin, `KayitHitit` uygulamasinin baglandigi REST endpoint'lerini saglar:
+KayitPlugin, `KayitHitit` uygulamasının bağlandığı REST endpoint'lerini sağlar:
 
 - `/wp-json/kongre-desktop/v1/bootstrap`
 - `/wp-json/kongre-desktop/v1/live`
 - `/wp-json/kongre-desktop/v1/participants`
 - `/wp-json/kongre-desktop/v1/workshops`
 
-Yetkilendirme, eklenti tarafinda olusturulan masaustu API anahtari ile yapilir.
+Yetkilendirme, eklenti tarafında oluşturulan masaüstü API anahtarı ile yapılır.
 
-## Masaustu API Anahtari Nasil Kullanilir?
+## Masaüstü API Anahtarı Nasıl Kullanılır?
 
-1. Eklentide API anahtari olusturulur.
-2. Bu anahtar `KayitHitit` uygulamasina girilir.
-3. Uygulama isteklerinde `X-Hitit-Desktop-Key` header'i ile gonderilir.
+1. Eklentide API anahtarı oluşturulur.
+2. Bu anahtar `KayitHitit` uygulamasına girilir.
+3. Uygulama isteklerinde `X-Hitit-Desktop-Key` header'i ile gönderilir.
 
-## Kayit Akisi
+## Kayıt Akışı
 
-1. Kullanici formu doldurur.
+1. Kullanıcı formu doldurur.
 2. `FormHitit` veriyi kaydeder.
 3. `KayitPlugin` hook ile formu yakalar.
-4. Atolye ve kontenjan mantigi uygulanir.
-5. Sonuc veritabani ve ilgili operasyon akislarina yazilir.
-6. Gerekirse mail kuyrugu devreye girer.
+4. Atölye ve kontenjan mantığı uygulanır.
+5. Sonuç veritabanı ve ilgili operasyon akışlarına yazılır.
+6. Gerekirse mail kuyruğu devreye girer.
 
-## Dosya Yapisi
+## Dosya Yapısı
 
 ```text
 KayitPlugin/
@@ -85,5 +85,5 @@ KayitPlugin/
 
 ## Notlar
 
-- Bu eklenti dogrudan masaustu panelle entegre oldugu icin operasyonel olarak kritik parcadir.
-- Hedef form secimi ve alan eslesmeleri yanlis yapilirsa desktop panelde veri beklenen bicimde gorunmez.
+- Bu eklenti doğrudan masaüstü panelle entegre olduğu için operasyonel olarak kritik parçadır.
+- Hedef form seçimi ve alan eşleşmeleri yanlış yapılırsa desktop panelde veri beklenen biçimde görünmez.

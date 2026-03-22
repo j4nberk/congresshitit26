@@ -1,85 +1,85 @@
 # FormHitit
 
-FormHitit, kongre kayitlari ve benzeri basvuru surecleri icin gelistirilmis bir WordPress form olusturma eklentisidir. Yonetim panelinde form tasarlanir, shortcode ile yayinlanir, gelen veriler veritabanina kaydedilir ve istege gore Google Sheets tarafina aktarilir.
+FormHitit, kongre kayıtları ve benzeri başvuru süreçleri için geliştirilmiş bir WordPress form oluşturma eklentisidir. Yönetim panelinde form tasarlanır, shortcode ile yayınlanır, gelen veriler veritabanına kaydedilir ve isteğe göre Google Sheets tarafına aktarılır.
 
-## Ne Saglar?
+## Ne Sağlar?
 
-- Dinamik form olusturma
-- Formlari WordPress panelinden yonetme
-- Gonderimleri veritabaninda saklama
+- Dinamik form oluşturma
+- Formları WordPress panelinden yönetme
+- Gönderimleri veritabanında saklama
 - Google Sheets entegrasyonu
-- Kosullu alan yapilari
-- Benzersiz alan kontrolu
-- Shortcode ile sayfada yayinlama
-- AJAX ile sayfa yenilenmeden form gonderimi
+- Koşullu alan yapıları
+- Benzersiz alan kontrolü
+- Shortcode ile sayfada yayınlama
+- AJAX ile sayfa yenilenmeden form gönderimi
 
 ## Shortcode
 
-Bir formu sayfada gostermek icin:
+Bir formu sayfada göstermek için:
 
 ```text
 [hitit_form id="1"]
 ```
 
-`id` degeri, admin panelinde olusturulan formun kimligidir.
+`id` değeri, admin panelinde oluşturulan formun kimliğidir.
 
 ## Kurulum
 
-1. Bu klasoru `wp-content/plugins/` altina kopyalayin.
-2. WordPress panelinden eklentiyi etkinlestirin.
-3. Admin panelinde `Hitit Forms` menusunu acin.
-4. Yeni form olusturun.
-5. Olusan shortcode'u ilgili sayfaya ekleyin.
+1. Bu klasörü `wp-content/plugins/` altına kopyalayın.
+2. WordPress panelinden eklentiyi etkinleştirin.
+3. Admin panelinde `Hitit Forms` menüsünü açın.
+4. Yeni form oluşturun.
+5. Oluşan shortcode'u ilgili sayfaya ekleyin.
 
-## Aktivasyon Sirasinda Neler Olur?
+## Aktivasyon Sırasında Neler Olur?
 
-Eklenti etkinlestiginde su tablolari olusturur:
+Eklenti etkinleştiğinde şu tabloları oluşturur:
 
 - `hitit_forms`
 - `hitit_form_entries`
 - `hitit_form_unique_values`
 - Sheets kuyruk tablosu
 
-Ayrica:
+Ayrıca:
 
-- Upload klasorunu hazirlar
-- Cron gorevlerini kaydeder
-- Kuyruk temizligi icin zamanlama olusturur
+- Upload klasörünü hazırlar
+- Cron görevlerini kaydeder
+- Kuyruk temizliği için zamanlama oluşturur
 
-## Yonetim Panelinde Neler Var?
+## Yönetim Panelinde Neler Var?
 
-- Tum formlar listesi
-- Yeni form olusturma ekrani
-- Gonderimler ekrani
-- CSV disa aktarma
-- Yeni kayitlari AJAX ile yenileme
+- Tüm formlar listesi
+- Yeni form oluşturma ekranı
+- Gönderimler ekranı
+- CSV dışa aktarma
+- Yeni kayıtları AJAX ile yenileme
 
-## Form Yayinlama Mantigi
+## Form Yayınlama Mantığı
 
-Sayfada shortcode goruldugunde eklenti:
+Sayfada shortcode görüldüğünde eklenti:
 
-- Gerekli CSS ve JS dosyalarini yukler
+- Gerekli CSS ve JS dosyalarını yükler
 - Gerekirse Google Fonts ekler
-- Form icinde `kongre_tercih` alani varsa ek asset'leri de yukler
-- Onbelleklenmeyi engellemek icin ilgili header ve sabitleri ayarlar
+- Form içinde `kongre_tercih` alanı varsa ek asset'leri de yükler
+- Önbelleklenmeyi engellemek için ilgili header ve sabitleri ayarlar
 
 ## Google Sheets Entegrasyonu
 
-Eklenti, gonderimleri anlik veya kuyruk mantigi ile Google Sheets tarafina yazabilecek sekilde tasarlanmistir. Bu sayede web paneline ek olarak Sheet uzerinden operasyon takibi yapilabilir.
+Eklenti, gönderimleri anlık veya kuyruk mantığı ile Google Sheets tarafına yazabilecek şekilde tasarlanmıştır. Bu sayede web paneline ek olarak Sheet üzerinden operasyon takibi yapılabilir.
 
-## Guvenlik ve Kontroller
+## Güvenlik ve Kontroller
 
-- Nonce kontrolu
-- Honeypot alani
+- Nonce kontrolü
+- Honeypot alanı
 - IP alma ve loglama
 - Unique alan claim tablosu ile tekrar eden veri engeli
 
-## Diger Bilesenlerle Iliskisi
+## Diğer Bileşenlerle İlişkisi
 
-- [KayitPlugin](../KayitPlugin), bu eklentiye hook olarak calisir.
-- Kongre kayit formunun ana veri kaynagi genelde bu eklentidir.
+- [KayitPlugin](../KayitPlugin), bu eklentiye hook olarak çalışır.
+- Kongre kayıt formunun ana veri kaynağı genelde bu eklentidir.
 
-## Dosya Yapisi
+## Dosya Yapısı
 
 ```text
 FormHitit/
@@ -92,5 +92,5 @@ FormHitit/
 
 ## Notlar
 
-- Form olusturma mantigi genel bir builder gibi yazilsa da kongre ihtiyaclarina gore ozellestirilmistir.
-- Cok yogun kayit anlarinda queue ve cron akislarinin saglikli calismasi onemlidir.
+- Form oluşturma mantığı genel bir builder gibi yazılsa da kongre ihtiyaçlarına göre özelleştirilmiştir.
+- Çok yoğun kayıt anlarında queue ve cron akışlarının sağlıklı çalışması önemlidir.

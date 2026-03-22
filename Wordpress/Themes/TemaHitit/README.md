@@ -2,39 +2,39 @@
 
 ![TemaHitit Preview](../../../assets/tema.png)
 
-TemaHitit, 3. Ulusal Tip Ogrenci Kongresi sitesi icin gelistirilmis ozel WordPress temasidir. Tema; Gutenberg uyumu, ozel sayfa sablonlari, block pattern'leri ve Tailwind tabanli stil yapisi ile kongre iceriklerinin hizli yonetilmesini saglar.
+TemaHitit, 3. Ulusal Tıp Öğrenci Kongresi sitesi için geliştirilmiş özel WordPress temasıdır. Tema; Gutenberg uyumu, özel sayfa şablonları, block pattern'leri ve Tailwind tabanlı stil yapısı ile kongre içeriklerinin hızlı yönetilmesini sağlar.
 
-## Temanin Sundugu Yapi
+## Temanın Sunduğu Yapı
 
-- Responsive kongre sitesi tasarimi
-- Gutenberg destekli duzenleme akisi
-- Ozel sayfa sablonlari
-- Ozel pattern'ler
-- Yerel font ve Font Awesome varliklari
+- Responsive kongre sitesi tasarımı
+- Gutenberg destekli düzenleme akışı
+- Özel sayfa şablonları
+- Özel pattern'ler
+- Yerel font ve Font Awesome varlıkları
 - Tailwind ile derlenen stil sistemi
 
-## Destekledigi Alanlar
+## Desteklediği Alanlar
 
-Tema kurulumunda su WordPress ozellikleri etkinlestirilir:
+Tema kurulumunda şu WordPress özellikleri etkinleştirilir:
 
 - `title-tag`
 - `post-thumbnails`
-- HTML5 bilesenleri
+- HTML5 bileşenleri
 - `wp-block-styles`
 - `align-wide`
 - `editor-styles`
 - `responsive-embeds`
 - `custom-logo`
 
-## Menu Konumlari
+## Menü Konumları
 
 - `primary`
 - `mobile`
 - `footer`
 
-## Ozel Sayfa Sablonlari ve Dosyalar
+## Özel Sayfa Şablonları ve Dosyalar
 
-Temada kongreye ozel hazir sayfalar bulunur:
+Temada kongreye özel hazır sayfalar bulunur:
 
 - `front-page.php`
 - `page-paketlerimiz.php`
@@ -46,7 +46,7 @@ Temada kongreye ozel hazir sayfalar bulunur:
 
 ## Pattern'ler
 
-Gutenberg tarafinda tekrar kullanilabilen pattern dosyalari:
+Gutenberg tarafında tekrar kullanılabilen pattern dosyaları:
 
 - `hero`
 - `program`
@@ -60,16 +60,16 @@ Gutenberg tarafinda tekrar kullanilabilen pattern dosyalari:
 
 ## Kurulum
 
-1. Bu klasoru `wp-content/themes/` altina kopyalayin.
-2. WordPress panelinden temayi etkinlestirin.
-3. Menu konumlarini baglayin.
-4. Logo, ana sayfa ve sayfa iceriklerini duzenleyin.
+1. Bu klasörü `wp-content/themes/` altına kopyalayın.
+2. WordPress panelinden temayı etkinleştirin.
+3. Menü konumlarını bağlayın.
+4. Logo, ana sayfa ve sayfa içeriklerini düzenleyin.
 
 Alternatif olarak `Wordpress/Zips/hitit-tema-v2.8.9.zip` paketini kullanabilirsiniz.
 
-## Gelistirme
+## Geliştirme
 
-Tema Tailwind CSS ile stil uretiyor.
+Tema Tailwind CSS ile stil üretiyor.
 
 Kurulum:
 
@@ -77,7 +77,7 @@ Kurulum:
 npm install
 ```
 
-Izleme modu:
+İzleme modu:
 
 ```bash
 npm run watch:css
@@ -89,16 +89,16 @@ Minify build:
 npm run build:css
 ```
 
-## Tema Icindeki Diger Ozel Bilesenler
+## Tema İçindeki Diğer Özel Bileşenler
 
-Tema klasoru icinde kongreye ozel gomulu plugin varyantlari da bulunur:
+Tema klasörü içinde kongreye özel gömülü plugin varyantları da bulunur:
 
 - `form-plugin/`
 - `reg-check-plugin/`
 
-Ana gelistirme kaynagi olarak yine `Wordpress/Plugins/` altindaki klasorleri esas almak daha duzenlidir; ancak tema icindeki kopyalar dagitim ve tasima kolayligi saglayabilir.
+Ana geliştirme kaynağı olarak yine `Wordpress/Plugins/` altındaki klasörleri esas almak daha düzenlidir; ancak tema içindeki kopyalar dağıtım ve taşıma kolaylığı sağlayabilir.
 
-## Dosya Yapisi
+## Dosya Yapısı
 
 ```text
 TemaHitit/
@@ -114,5 +114,5 @@ TemaHitit/
 
 ## Notlar
 
-- Tema, kongre sayfalarini hizli yayina almak icin bircok varsayilan icerik ve sablon sunar.
-- `functions.php` icinde paketler, odeme bilgileri ve program atlasi gibi ozel varsayilan icerikler uretilir.
+- Tema, kongre sayfalarını hızlı yayına almak için birçok varsayılan içerik ve şablon sunar.
+- `functions.php` içinde paketler, ödeme bilgileri ve program atlası gibi özel varsayılan içerikler üretilir.

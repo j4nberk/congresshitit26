@@ -2,31 +2,31 @@
 
 ![KayitHitit Screenshot](../assets/kayit-hitit.png)
 
-KayitHitit, kongre kayitlarini WordPress uzerinden canli takip etmek icin gelistirilmis Electron masaustu panelidir. Katilimcilari listeler, canli akis uzerinden yeni kayitlari gosterir, atolye doluluklarini takip eder ve secilen listeleri PDF olarak disa aktarir.
+KayitHitit, kongre kayıtlarını WordPress üzerinden canlı takip etmek için geliştirilmiş Electron masaüstü panelidir. Katılımcıları listeler, canlı akış üzerinden yeni kayıtları gösterir, atölye doluluklarını takip eder ve seçilen listeleri PDF olarak dışa aktarır.
 
-## Ne Ise Yarar?
+## Ne İşe Yarar?
 
-- WordPress'teki kayitlari tek ekranda toplar
-- Yeni gelen basvurulari canli polling ile izler
-- Bilimsel ve sosyal atolyeleri ayri ayri listeler
-- Katilimci listesini veya secili atolye listesini PDF ciktisi olarak olusturur
-- Basvuru numarasina gore veya farkli siralama tiplerine gore veri goruntuler
+- WordPress'teki kayıtları tek ekranda toplar
+- Yeni gelen başvuruları canlı polling ile izler
+- Bilimsel ve sosyal atölyeleri ayrı ayrı listeler
+- Katılımcı listesini veya seçili atölye listesini PDF çıktısı olarak oluşturur
+- Başvuru numarasına göre veya farklı sıralama tiplerine göre veri görüntüler
 
-## Bagimli Oldugu Bilesen
+## Bağımlı Olduğu Bileşen
 
-Bu uygulama tek basina calismaz. Veri kaynagi olarak su eklentiye baglanir:
+Bu uygulama tek başına çalışmaz. Veri kaynağı olarak şu eklentiye bağlanır:
 
 - [KayitPlugin](../Wordpress/Plugins/KayitPlugin)
 
-KayitPlugin de kendi icinde [FormHitit](../Wordpress/Plugins/FormHitit) ile entegre calisir.
+KayitPlugin de kendi içinde [FormHitit](../Wordpress/Plugins/FormHitit) ile entegre çalışır.
 
 ## Gereksinimler
 
 - Node.js 18+
 - npm 9+
-- Calisan bir WordPress sitesi
-- Etkin `Kongre Atolye Yerlestirme` eklentisi
-- WordPress tarafinda olusturulmus masaustu API anahtari
+- Çalışan bir WordPress sitesi
+- Etkin `Kongre Atölye Yerleştirme` eklentisi
+- WordPress tarafında oluşturulmuş masaüstü API anahtarı
 
 ## Kurulum
 
@@ -34,7 +34,7 @@ KayitPlugin de kendi icinde [FormHitit](../Wordpress/Plugins/FormHitit) ile ente
 npm install
 ```
 
-## Gelistirme Modunda Calistirma
+## Geliştirme Modunda Çalıştırma
 
 ```bash
 npm run dev
@@ -42,75 +42,75 @@ npm run dev
 
 Bu komut:
 
-- Vite gelistirme sunucusunu baslatir
-- Electron penceresini acar
+- Vite geliştirme sunucusunu başlatır
+- Electron penceresini açar
 
-## Uretim Paketi Alma
+## Üretim Paketi Alma
 
 ```bash
 npm run build
 ```
 
-Olusan masaustu paketleri `dist-app/` altina yazilir.
+Oluşan masaüstü paketleri `dist-app/` altına yazılır.
 
-## Uygulama Icinde Ilk Kurulum
+## Uygulama İçinde İlk Kurulum
 
-Uygulama acildiginda sizden iki temel bilgi ister:
+Uygulama açıldığında sizden iki temel bilgi ister:
 
 1. `Site Adresi`
-   Ornek: `https://siteadresiniz.com`
-2. `Masaustu API Anahtari`
-   Ornek: `kh_...`
+   Örnek: `https://siteadresiniz.com`
+2. `Masaüstü API Anahtarı`
+   Örnek: `kh_...`
 
-Bu bilgiler, WordPress tarafindaki `kongre-desktop/v1` endpoint'lerine baglanmak icin kullanilir.
+Bu bilgiler, WordPress tarafındaki `kongre-desktop/v1` endpoint'lerine bağlanmak için kullanılır.
 
-## Nasil Kullanilir?
+## Nasıl Kullanılır?
 
-1. WordPress tarafinda hedef formu ve masaustu API ayarlarini hazirlayin.
-2. KayitHitit uygulamasini acin.
-3. Site adresini ve API anahtarini girin.
-4. `Baglanti Testi` yapin.
-5. Basariliysa dashboard verilerini cekin.
-6. Istiyorsaniz canli polling'i aktif edip yeni kayitlarin anlik dusmesini izleyin.
-7. Katilimci veya atolye listesi secip PDF export alin.
+1. WordPress tarafında hedef formu ve masaüstü API ayarlarını hazırlayın.
+2. KayitHitit uygulamasını açın.
+3. Site adresini ve API anahtarını girin.
+4. `Bağlantı Testi` yapın.
+5. Başarılıysa dashboard verilerini çekin.
+6. İstiyorsanız canlı polling'i aktif edip yeni kayıtların anlık düşmesini izleyin.
+7. Katılımcı veya atölye listesi seçip PDF export alın.
 
-## Uygulamanin Gosterdigi Veriler
+## Uygulamanın Gösterdiği Veriler
 
-- Toplam katilimci sayisi
-- Son senkronizasyon zamani
-- Canli akisa dusen son kayitlar
-- Tum katilimci listesi
-- Bilimsel ve sosyal atolye oturumlari
-- Secili oturuma ait ogrenci listesi
+- Toplam katılımcı sayısı
+- Son senkronizasyon zamanı
+- Canlı akışa düşen son kayıtlar
+- Tüm katılımcı listesi
+- Bilimsel ve sosyal atölye oturumları
+- Seçili oturuma ait öğrenci listesi
 
-## PDF Ciktilari
+## PDF Çıktıları
 
-Uygulama iki farkli PDF uretebilir:
+Uygulama iki farklı PDF üretebilir:
 
-- Toplam katilimci listesi
-- Secili atolye / oturum listesi
+- Toplam katılımcı listesi
+- Seçili atölye / oturum listesi
 
-PDF ciktilari kongre logosu ve duzenli tablo bicimi ile olusturulur.
+PDF çıktıları kongre logosu ve düzenli tablo biçimi ile oluşturulur.
 
-## WordPress Tarafinda Gerekli API'ler
+## WordPress Tarafında Gerekli API'ler
 
-KayitHitit su endpoint'lerle haberlesir:
+KayitHitit şu endpoint'lerle haberleşir:
 
 - `/wp-json/kongre-desktop/v1/bootstrap`
 - `/wp-json/kongre-desktop/v1/live`
 - `/wp-json/kongre-desktop/v1/participants`
 - `/wp-json/kongre-desktop/v1/workshops`
 
-Yetkilendirme `X-Hitit-Desktop-Key` header'i ile yapilir.
+Yetkilendirme `X-Hitit-Desktop-Key` header'i ile yapılır.
 
 ## Script'ler
 
-- `npm run dev` -> Vite + Electron gelistirme modu
+- `npm run dev` -> Vite + Electron geliştirme modu
 - `npm run build` -> Web bundle + Electron paketleme
 - `npm run dev:vite` -> Sadece Vite
 - `npm run dev:electron` -> Sadece Electron
 
-## Dosya Yapisi
+## Dosya Yapısı
 
 ```text
 KayitHitit/
@@ -123,6 +123,6 @@ KayitHitit/
 
 ## Notlar
 
-- Ayarlar yerel olarak saklanir.
-- API anahtari olmadan uygulama veri cekmez.
-- Bu arac, operasyon ekranidir; esas veri yonetimi WordPress tarafindadir.
+- Ayarlar yerel olarak saklanır.
+- API anahtarı olmadan uygulama veri çekmez.
+- Bu araç, operasyon ekranıdır; esas veri yönetimi WordPress tarafındadır.

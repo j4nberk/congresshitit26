@@ -2,41 +2,41 @@
 
 ![BildiriHitit Screenshot](../assets/bildiri-hitit.png)
 
-BildiriHitit, kongre bildirilerinin toplanmasi, hakemlere dagitilmasi, puanlanmasi ve sonuc maillerinin gonderilmesi icin hazirlanmis Electron tabanli yonetim uygulamasidir. Uygulama tek pencere icinde dashboard, hoca yonetimi, ogrenci/bildiri kayitlari, puanlama ve mail akisini bir arada sunar.
+BildiriHitit, kongre bildirilerinin toplanması, hakemlere dağıtılması, puanlanması ve sonuç maillerinin gönderilmesi için hazırlanmış Electron tabanlı yönetim uygulamasıdır. Uygulama tek pencere içinde dashboard, hoca yönetimi, öğrenci/bildiri kayıtları, puanlama ve mail akışını bir arada sunar.
 
-## Baslica Ozellikler
+## Başlıca Özellikler
 
 - Hakem / hoca listesi tutma
-- Hoca basi bildiri kapasitesi tanimlama
-- Ogrenci ve bildiri kayitlarini olusturma
-- DOCX dosyasi secme, kopyalama ve yerel dosya yonetimi
+- Hoca başı bildiri kapasitesi tanımlama
+- Öğrenci ve bildiri kayıtlarını oluşturma
+- DOCX dosyası seçme, kopyalama ve yerel dosya yönetimi
 - Bildirilere puan girme ve ortalama takibi
-- Hocalara ve ogrencilere toplu mail gonderimi
-- SMTP baglanti testi
-- PDF ve Excel disa aktarma
+- Hocalara ve öğrencilere toplu mail gönderimi
+- SMTP bağlantı testi
+- PDF ve Excel dışa aktarma
 
 ## Ekranlar
 
 - `Anasayfa`
-  Genel istatistikleri ve hizli islemleri gosterir.
+  Genel istatistikleri ve hızlı işlemleri gösterir.
 - `Hocalar`
-  Hakem kaydi, e-posta bilgisi ve kapasite yonetimi.
-- `Ogrenciler & Bildiriler`
-  Ogrenci, bildiri basligi, iletisim ve dosya yonetimi.
+  Hakem kaydı, e-posta bilgisi ve kapasite yönetimi.
+- `Öğrenciler & Bildiriler`
+  Öğrenci, bildiri başlığı, iletişim ve dosya yönetimi.
 - `Puanlama`
-  Bildiri puanlarinin girildigi ve takip edildigi alan.
-- `Hoca Gonderim`
-  Hakemlere bildiri gonderimi icin ayrilan alan.
-- `Ayarlar & Sablonlar`
-  Tema, SMTP ve e-posta sablonlari.
-- `Ogrenci Gonderim`
-  Kabul / ret benzeri sonuc gonderimleri.
+  Bildiri puanlarının girildiği ve takip edildiği alan.
+- `Hoca Gönderim`
+  Hakemlere bildiri gönderimi için ayrılan alan.
+- `Ayarlar & Şablonlar`
+  Tema, SMTP ve e-posta şablonları.
+- `Öğrenci Gönderim`
+  Kabul / ret benzeri sonuç gönderimleri.
 
 ## Gereksinimler
 
 - Node.js 18+
 - npm 9+
-- SMTP erisimi olan bir e-posta hesabi
+- SMTP erişimi olan bir e-posta hesabı
 
 ## Kurulum
 
@@ -44,75 +44,75 @@ BildiriHitit, kongre bildirilerinin toplanmasi, hakemlere dagitilmasi, puanlanma
 npm install
 ```
 
-## Gelistirme Modunda Calistirma
+## Geliştirme Modunda Çalıştırma
 
 ```bash
 npm run dev
 ```
 
-## Uretim Paketi Alma
+## Üretim Paketi Alma
 
 ```bash
 npm run build
 ```
 
-Mac DMG varyanti icin ayrica:
+Mac DMG varyantı için ayrıca:
 
 ```bash
 npm run build:electron:dmg
 ```
 
-## Nasil Kullanilir?
+## Nasıl Kullanılır?
 
-1. Uygulamayi acin.
-2. `Hocalar` ekranindan hakemleri ekleyin.
-3. `Ogrenciler & Bildiriler` ekranindan bildirileri ve ogrenci kayitlarini girin veya ice alin.
-4. Gerekirse bildiri dosyalarini sisteme baglayin.
-5. `Puanlama` ekranindan degerlendirmeleri tamamlayin.
-6. `Ayarlar & Sablonlar` ekraninda SMTP ve mail iceriklerini ayarlayin.
-7. `Hoca Gonderim` veya `Ogrenci Gonderim` ekranindan toplu gonderimi baslatin.
+1. Uygulamayı açın.
+2. `Hocalar` ekranından hakemleri ekleyin.
+3. `Öğrenciler & Bildiriler` ekranından bildirileri ve öğrenci kayıtlarını girin veya içe alın.
+4. Gerekirse bildiri dosyalarını sisteme bağlayın.
+5. `Puanlama` ekranından değerlendirmeleri tamamlayın.
+6. `Ayarlar & Şablonlar` ekranında SMTP ve mail içeriklerini ayarlayın.
+7. `Hoca Gönderim` veya `Öğrenci Gönderim` ekranından toplu gönderimi başlatın.
 
 ## Veri Modeli Olarak Neler Tutulur?
 
-Yerel olarak su veriler tutulur:
+Yerel olarak şu veriler tutulur:
 
 - Hoca listesi
-- Ogrenci / bildiri kayitlari
-- SMTP ayarlari
-- Mail sablonlari
-- Tema secimi
+- Öğrenci / bildiri kayıtları
+- SMTP ayarları
+- Mail şablonları
+- Tema seçimi
 
-Bu sayede uygulama tekrar acildiginda son durum korunur.
+Bu sayede uygulama tekrar açıldığında son durum korunur.
 
-## Mail Akisi
+## Mail Akışı
 
-BildiriHitit, Nodemailer uzerinden SMTP ile gonderim yapar. Uygulamada:
+BildiriHitit, Nodemailer üzerinden SMTP ile gönderim yapar. Uygulamada:
 
 - SMTP host
 - Port
-- Gonderici e-postasi
-- Sifre
-- Gonderici adi
+- Gönderici e-postası
+- Şifre
+- Gönderici adı
 
 bilgileri kaydedilebilir ve test edilebilir.
 
-## Disa Aktarma
+## Dışa Aktarma
 
-Uygulama asagidaki ciktilari destekler:
+Uygulama aşağıdaki çıktıları destekler:
 
 - Excel olarak bildiri listesi
 - PDF olarak rapor / liste
-- Gonderim loglari
+- Gönderim logları
 
 ## Script'ler
 
-- `npm run dev` -> Gelistirme modu
-- `npm run build` -> Uretim paketi
-- `npm run build:electron:dmg` -> Mac icin DMG olusturma
+- `npm run dev` -> Geliştirme modu
+- `npm run build` -> Üretim paketi
+- `npm run build:electron:dmg` -> Mac için DMG oluşturma
 - `npm run dev:vite` -> Sadece Vite
 - `npm run dev:electron` -> Sadece Electron
 
-## Dosya Yapisi
+## Dosya Yapısı
 
 ```text
 BildiriHitit/
@@ -125,6 +125,6 @@ BildiriHitit/
 
 ## Notlar
 
-- Uygulama merkezi bir web servise bagli degildir; is akisinin ana verisi yerel olarak tutulur.
-- SMTP bilgileri olmadan toplu gonderim ekranlari kullanilamaz.
-- Hakem kapasitesi ve puanlama mantigi kongre operasyonuna gore ozellestirilmistir.
+- Uygulama merkezi bir web servise bağlı değildir; iş akışının ana verisi yerel olarak tutulur.
+- SMTP bilgileri olmadan toplu gönderim ekranları kullanılamaz.
+- Hakem kapasitesi ve puanlama mantığı kongre operasyonuna göre özelleştirilmiştir.

@@ -2,13 +2,13 @@
 
 ![CekilisHitit Screenshot](../assets/cekilis-hitit.png)
 
-CekilisHitit, hem Instagram cekilis operasyonu hem de gala gecesi odul dagitimi icin kullanilan Electron uygulamasidir. Uygulama tek arayuzde yorum cekme, kurali cekilis yapma, cok turlu odul dagitimi ve sahneye uygun gala modu sunar.
+CekilisHitit, hem Instagram çekiliş operasyonu hem de gala gecesi ödül dağıtımı için kullanılan Electron uygulamasıdır. Uygulama tek arayüzde yorum çekme, kurallı çekiliş yapma, çok turlu ödül dağıtımı ve sahneye uygun gala modu sunar.
 
-## Calisma Modlari
+## Çalışma Modları
 
-### 1. Instagram Yorum Cekme
+### 1. Instagram Yorum Çekme
 
-Bir Instagram gonderisinin yorumlarini indirir.
+Bir Instagram gönderisinin yorumlarını indirir.
 
 Desteklenen motorlar:
 
@@ -16,32 +16,32 @@ Desteklenen motorlar:
 - `Apify Bulut`
 - `Yerel (V6)`
 
-### 2. Instagram Cekilisi
+### 2. Instagram Çekilişi
 
-Yorumlar cekildikten sonra veya mevcut listeyle:
+Yorumlar çekildikten sonra veya mevcut listeyle:
 
-- kazanan sayisi
-- yedek sayisi
-- birden fazla kazanma kurali
-- takip etme / begeni / etiket kontrolu
-- coklu odul turlari
+- kazanan sayısı
+- yedek sayısı
+- birden fazla kazanma kuralı
+- takip etme / beğeni / etiket kontrolü
+- çoklu ödül turları
 
-gibi ayarlarla cekilis yapar.
+gibi ayarlarla çekiliş yapar.
 
 ### 3. Gala Modu
 
-Excel'den katilimci ve odul listesi yukleyerek sahnede cekilis yapilmasini saglar.
+Excel'den katılımcı ve ödül listesi yükleyerek sahnede çekiliş yapılmasını sağlar.
 
 ## Gereksinimler
 
 - Node.js 18+
 - npm 9+
-- Instagram yorum cekimi icin uygun erisim bilgisi
+- Instagram yorum çekimi için uygun erişim bilgisi
 
-Motor bazli ek gereksinimler:
+Motor bazlı ek gereksinimler:
 
-- `Apify Bulut` icin Apify API token
-- `InstaTouch` icin Instagram session id
+- `Apify Bulut` için Apify API token
+- `InstaTouch` için Instagram session id
 
 ## Kurulum
 
@@ -49,76 +49,76 @@ Motor bazli ek gereksinimler:
 npm install
 ```
 
-## Gelistirme Modunda Calistirma
+## Geliştirme Modunda Çalıştırma
 
 ```bash
 npm run dev
 ```
 
-## Uretim Paketi Alma
+## Üretim Paketi Alma
 
 ```bash
 npm run build
 ```
 
-## Instagram Yorum Cekme Nasil Kullanilir?
+## Instagram Yorum Çekme Nasıl Kullanılır?
 
-1. Uygulamayi acin.
-2. `Yorum Cekme` modunu secin.
-3. Instagram gonderi baglantisini girin.
-4. Kullanmak istediginiz motoru secin.
+1. Uygulamayı açın.
+2. `Yorum Çekme` modunu seçin.
+3. Instagram gönderi bağlantısını girin.
+4. Kullanmak istediğiniz motoru seçin.
 5. Gerekliyse Apify token veya session id bilgisini girin.
-6. Yorumu cekip sonucu yerel liste olarak alin.
+6. Yorumu çekip sonucu yerel liste olarak alın.
 
-## Instagram Cekilisi Nasil Yapilir?
+## Instagram Çekilişi Nasıl Yapılır?
 
-1. `Cekilis` modunu secin.
-2. Yorum listesini / cekilis kaynagini belirleyin.
-3. Her tur icin odul adi, kazanan ve yedek sayisini tanimlayin.
-4. Tekrarlanan kazananlari engellemek icin tur mantigini kullanin.
-5. Cekilisi baslatin.
-6. Sonuc ekraninda kazananlari goruntuleyin.
+1. `Çekiliş` modunu seçin.
+2. Yorum listesini / çekiliş kaynağını belirleyin.
+3. Her tur için ödül adı, kazanan ve yedek sayısını tanımlayın.
+4. Tekrarlanan kazananları engellemek için tur mantığını kullanın.
+5. Çekilişi başlatın.
+6. Sonuç ekranında kazananları görüntüleyin.
 
-## Gala Modu Nasil Kullanilir?
+## Gala Modu Nasıl Kullanılır?
 
-1. `Gala` modunu secin.
-2. Katilimci listesini Excel olarak yukleyin.
-3. Odul listesini Excel olarak yukleyin.
-4. Dashboard ekraninda odul sirasini ve ayarlari kontrol edin.
-5. Manuel veya otomatik modda cekilisi baslatin.
-6. Final ekranda tum kazananlari toplayin.
+1. `Gala` modunu seçin.
+2. Katılımcı listesini Excel olarak yükleyin.
+3. Ödül listesini Excel olarak yükleyin.
+4. Dashboard ekranında ödül sırasını ve ayarları kontrol edin.
+5. Manuel veya otomatik modda çekilişi başlatın.
+6. Final ekranda tüm kazananları toplayın.
 
 ## Gala Excel Beklentileri
 
-Katilimci dosyasi:
+Katılımcı dosyası:
 
-- Isim, soyisim, kurum gibi alanlar icerebilir
-- Satirlar katilimci olarak okunur
+- İsim, soyisim, kurum gibi alanlar içerebilir
+- Satırlar katılımcı olarak okunur
 
-Odul dosyasi:
+Ödül dosyası:
 
-- `Odul` / `Prize`
+- `Ödül` / `Prize`
 - `Adet` / `Count`
 
-alanlarini destekler.
+alanlarını destekler.
 
 ## Script'ler
 
-- `npm run dev` -> Gelistirme modu
-- `npm run build` -> Uretim paketi
-- `npm run lint` -> ESLint kontrolu
-- `npm run preview` -> Vite onizleme
+- `npm run dev` -> Geliştirme modu
+- `npm run build` -> Üretim paketi
+- `npm run lint` -> ESLint kontrolü
+- `npm run preview` -> Vite önizleme
 
-## Diger Dosyalar
+## Diğer Dosyalar
 
-Repo icinde su yardimci dosyalar bulunur:
+Repo içinde şu yardımcı dosyalar bulunur:
 
-- `scraper/` -> Python tabanli scraping denemeleri
-- `ig-test/` -> Test amacli dosyalar
-- `apify_schema.json` -> Apify akisina dair sema
+- `scraper/` -> Python tabanlı scraping denemeleri
+- `ig-test/` -> Test amaçlı dosyalar
+- `apify_schema.json` -> Apify akışına dair şema
 
 ## Notlar
 
-- Yerel scraping yontemleri Instagram tarafinda risk olusturabilir.
-- Apify kullanimi daha guvenli bir akistir ancak harici servis bagimliligi vardir.
-- Gala modu, sahne akisina uygun hizli operasyona gore tasarlanmistir.
+- Yerel scraping yöntemleri Instagram tarafında risk oluşturabilir.
+- Apify kullanımı daha güvenli bir akıştır ancak harici servis bağımlılığı vardır.
+- Gala modu, sahne akışına uygun hızlı operasyona göre tasarlanmıştır.

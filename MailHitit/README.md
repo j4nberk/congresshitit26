@@ -2,39 +2,39 @@
 
 ![MailHitit Screenshot](../assets/mail-hitit.png)
 
-MailHitit, Excel listeleri uzerinden kisilestirilmis toplu e-posta gondermek icin hazirlanmis bir Electron uygulamasidir. Kongre duyurulari, bilgilendirme mailleri, odeme hatirlatmalari ve sonuc paylasimlari gibi tekrar eden iletisim islerini hizlandirmak icin kullanilir.
+MailHitit, Excel listeleri üzerinden kişiselleştirilmiş toplu e-posta göndermek için hazırlanmış bir Electron uygulamasıdır. Kongre duyuruları, bilgilendirme mailleri, ödeme hatırlatmaları ve sonuç paylaşımları gibi tekrar eden iletişim işlerini hızlandırmak için kullanılır.
 
-## Baslica Ozellikler
+## Başlıca Özellikler
 
-- SMTP baglanti ayarlari ve test ekrani
-- HTML mail icerigi hazirlama
-- Konu satiri ve icerikte placeholder kullanimi
-- Excel dosyasi yukleme (`.xlsx`, `.xls`, `.csv`)
-- E-posta sutunu secme ve gecerli adresleri sayma
-- Satir araligi secerek parcali gonderim yapma
-- Gonderim hizi / saatlik limit tanimlama
-- Ek dosya ile gonderim
-- Canli log ve gonderim ozeti
-- Log'lari disa aktarma
+- SMTP bağlantı ayarları ve test ekranı
+- HTML mail içeriği hazırlama
+- Konu satırı ve içerikte placeholder kullanımı
+- Excel dosyası yükleme (`.xlsx`, `.xls`, `.csv`)
+- E-posta sütunu seçme ve geçerli adresleri sayma
+- Satır aralığı seçerek parçalı gönderim yapma
+- Gönderim hızı / saatlik limit tanımlama
+- Ek dosya ile gönderim
+- Canlı log ve gönderim özeti
+- Log'ları dışa aktarma
 
-## Adimlar
+## Adımlar
 
-Uygulama 4 asamali calisir:
+Uygulama 4 aşamalı çalışır:
 
 1. `Ayarlar`
-   SMTP bilgilerini tanimlama ve baglanti testi
+   SMTP bilgilerini tanımlama ve bağlantı testi
 2. `Mail Editor`
-   Konu, HTML icerik ve ek dosyalari hazirlama
-3. `Alicilar`
-   Excel dosyasi yukleme, email sutunu ve placeholder eslestirmesi
-4. `Gonderim`
-   Toplu gonderimi baslatma, durdurma ve loglari takip etme
+   Konu, HTML içerik ve ek dosyaları hazırlama
+3. `Alıcılar`
+   Excel dosyası yükleme, email sütunu ve placeholder eşleştirmesi
+4. `Gönderim`
+   Toplu gönderimi başlatma, durdurma ve logları takip etme
 
 ## Gereksinimler
 
 - Node.js 18+
 - npm 9+
-- SMTP gonderimine izin veren bir e-posta hesabi
+- SMTP gönderimine izin veren bir e-posta hesabı
 
 ## Kurulum
 
@@ -42,33 +42,33 @@ Uygulama 4 asamali calisir:
 npm install
 ```
 
-## Gelistirme Modunda Calistirma
+## Geliştirme Modunda Çalıştırma
 
 ```bash
 npm run dev
 ```
 
-## Uretim Paketi Alma
+## Üretim Paketi Alma
 
 ```bash
 npm run build
 ```
 
-## Nasil Kullanilir?
+## Nasıl Kullanılır?
 
-1. `Ayarlar` ekraninda SMTP host, port, gonderici maili, sifre ve ad bilgisini girin.
-2. SMTP testini calistirin.
-3. `Mail Editor` ekraninda konu satiri ve HTML govdesini hazirlayin.
+1. `Ayarlar` ekranında SMTP host, port, gönderici maili, şifre ve ad bilgisini girin.
+2. SMTP testini çalıştırın.
+3. `Mail Editor` ekranında konu satırı ve HTML gövdesini hazırlayın.
 4. Gerekirse ek dosya ekleyin.
-5. `Alicilar` ekraninda Excel dosyasini yukleyin.
-6. E-posta sutununu secin.
-7. Kullandiginiz placeholder'lari Excel sutunlariyla eslestirin.
-8. Gonderilecek satir araligini belirleyin.
-9. `Gonderim` ekranindan islemi baslatin.
+5. `Alıcılar` ekranında Excel dosyasını yükleyin.
+6. E-posta sütununu seçin.
+7. Kullandığınız placeholder'ları Excel sütunlarıyla eşleştirin.
+8. Gönderilecek satır aralığını belirleyin.
+9. `Gönderim` ekranından işlemi başlatın.
 
-## Placeholder Mantigi
+## Placeholder Mantığı
 
-Mail iceriginde veya konu satirinda su tarz alanlar kullanabilirsiniz:
+Mail içeriğinde veya konu satırında şu tarz alanlar kullanabilirsiniz:
 
 ```text
 {ad_soyad}
@@ -76,35 +76,35 @@ Mail iceriginde veya konu satirinda su tarz alanlar kullanabilirsiniz:
 {kayit_durumu}
 ```
 
-Uygulama, bu alanlari Excel'deki secilen sutunlarla eslestirerek her alici icin farkli icerik olusturur.
+Uygulama, bu alanları Excel'deki seçilen sütunlarla eşleştirerek her alıcı için farklı içerik oluşturur.
 
-## Excel Yukleme Sonrasi Yapilan Islemler
+## Excel Yükleme Sonrası Yapılan İşlemler
 
-- Sutun isimleri okunur
-- Ilk satirlarin onizlemesi gosterilir
-- Olası e-posta sutunu otomatik tespit edilmeye calisilir
-- `mailto:` ile baslayan adresler temizlenir
-- Gecerli mail sayisi hesaplanir
+- Sütun isimleri okunur
+- İlk satırların önizlemesi gösterilir
+- Olası e-posta sütunu otomatik tespit edilmeye çalışılır
+- `mailto:` ile başlayan adresler temizlenir
+- Geçerli mail sayısı hesaplanır
 
-## Gonderim Sirasinda
+## Gönderim Sırasında
 
-Uygulama su durumlari ayri ayri raporlar:
+Uygulama şu durumları ayrı ayrı raporlar:
 
-- Gonderildi
-- Basarisiz
-- Atlandi
-- Rate limit algilandi
-- Tamamlandi
-- Iptal edildi
+- Gönderildi
+- Başarısız
+- Atlandı
+- Rate limit algılandı
+- Tamamlandı
+- İptal edildi
 
 ## Script'ler
 
-- `npm run dev` -> Gelistirme modu
-- `npm run build` -> Uretim paketi
+- `npm run dev` -> Geliştirme modu
+- `npm run build` -> Üretim paketi
 - `npm run dev:vite` -> Sadece Vite
 - `npm run dev:electron` -> Sadece Electron
 
-## Dosya Yapisi
+## Dosya Yapısı
 
 ```text
 MailHitit/
@@ -117,6 +117,6 @@ MailHitit/
 
 ## Notlar
 
-- Ayarlar yerel olarak saklanir.
-- Gonderim hizi dusuk tutulursa hesap limiti ve spam riski daha iyi yonetilir.
-- Toplu gonderimlerde once kucuk bir test listesiyle deneme yapmak iyi olur.
+- Ayarlar yerel olarak saklanır.
+- Gönderim hızı düşük tutulursa hesap limiti ve spam riski daha iyi yönetilir.
+- Toplu gönderimlerde önce küçük bir test listesiyle deneme yapmak iyi olur.

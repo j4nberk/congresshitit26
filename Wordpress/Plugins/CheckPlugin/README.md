@@ -1,17 +1,17 @@
 # CheckPlugin
 
-CheckPlugin, katilimcilarin telefon numarasi ile kayit durumunu sorgulamasini saglayan WordPress eklentisidir. Kullanici arayuzu shortcode ile sayfaya yerlestirilir ve sorgular AJAX ile sonuc dondurur.
+CheckPlugin, katılımcıların telefon numarası ile kayıt durumunu sorgulamasını sağlayan WordPress eklentisidir. Kullanıcı arayüzü shortcode ile sayfaya yerleştirilir ve sorgular AJAX ile sonuç döndürür.
 
-## Ne Ise Yarar?
+## Ne İşe Yarar?
 
-- Katilimcilar kendi kaydini sorgulayabilir
-- Sonuc ekrani sayfa yenilenmeden gelir
-- Telefon numarasi tabanli arama yapilir
-- reCAPTCHA ile bot / spam korumasi eklenebilir
+- Katılımcılar kendi kaydını sorgulayabilir
+- Sonuç ekranı sayfa yenilenmeden gelir
+- Telefon numarası tabanlı arama yapılır
+- reCAPTCHA ile bot / spam koruması eklenebilir
 
 ## Shortcode
 
-Sayfada sorgu formunu gostermek icin:
+Sayfada sorgu formunu göstermek için:
 
 ```text
 [kayit_kontrol]
@@ -19,37 +19,37 @@ Sayfada sorgu formunu gostermek icin:
 
 ## Kurulum
 
-1. Bu klasoru `wp-content/plugins/` altina kopyalayin.
-2. Eklentiyi WordPress panelinden etkinlestirin.
-3. Eklenti ayarlarinda baslik, aciklama ve sonuc alanlarini duzenleyin.
-4. Kullanicilarin gorecegi sayfaya shortcode'u ekleyin.
+1. Bu klasörü `wp-content/plugins/` altına kopyalayın.
+2. Eklentiyi WordPress panelinden etkinleştirin.
+3. Eklenti ayarlarında başlık, açıklama ve sonuç alanlarını düzenleyin.
+4. Kullanıcıların göreceği sayfaya shortcode'u ekleyin.
 
-## Kullanim Akisi
+## Kullanım Akışı
 
-1. Kullanici telefon numarasini girer.
-2. Varsa reCAPTCHA dogrulamasini tamamlar.
-3. Form AJAX ile `admin-ajax.php` uzerinden sorgulanir.
-4. Sonuc kartinda kayit bilgisi gosterilir.
+1. Kullanıcı telefon numarasını girer.
+2. Varsa reCAPTCHA doğrulamasını tamamlar.
+3. Form AJAX ile `admin-ajax.php` üzerinden sorgulanır.
+4. Sonuç kartında kayıt bilgisi gösterilir.
 
-## Arayuzde Neler Ozellestirilebilir?
+## Arayüzde Neler Özelleştirilebilir?
 
-- Baslik
-- Aciklama metni
-- Sonuc kolon etiketleri
+- Başlık
+- Açıklama metni
+- Sonuç kolon etiketleri
 - reCAPTCHA site key
 
-## Teknik Yapi
+## Teknik Yapı
 
-Eklenti uc ana parcadan olusur:
+Eklenti üç ana parçadan oluşur:
 
 - `class-reg-check-admin.php`
-  Admin ayarlari
+  Admin ayarları
 - `class-reg-check-shortcode.php`
-  Shortcode ve asset yukleme
+  Shortcode ve asset yükleme
 - `class-reg-check-ajax.php`
-  AJAX sorgu islemi
+  AJAX sorgu işlemi
 
-## Dosya Yapisi
+## Dosya Yapısı
 
 ```text
 CheckPlugin/
@@ -61,5 +61,5 @@ CheckPlugin/
 
 ## Notlar
 
-- Kayit verisinin dogru okunabilmesi icin veri kaynaginin ve kolon eslesmelerinin duzgun ayarlanmasi gerekir.
-- Kullaniciya acik oldugu icin spam ve brute-force riskine karsi reCAPTCHA kullanimi faydalidir.
+- Kayıt verisinin doğru okunabilmesi için veri kaynağının ve kolon eşleşmelerinin düzgün ayarlanması gerekir.
+- Kullanıcıya açık olduğu için spam ve brute-force riskine karşı reCAPTCHA kullanımı faydalıdır.
